@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [signupDetails, setSignupDetails] = useState({
@@ -38,19 +39,20 @@ const SignUp = () => {
 
   }
   return (
-    <div className="w-full flex items-center justify-center backdrop-blur-[30px] bg-[rgba(255, 255, 255, 0.2)] min-h-screen">
+    <div className="w-full font-montserrat flex px-[16px] lg:px-0 lg:flex-col lg:items-center lg:justify-center lg:backdrop-blur-[30px] lg:bg-[rgba(255, 255, 255, 0.2)] min-h-screen">
       <form 
         onSubmit={handleSignUp}
-      className="w-[451px] bg-white border-[#F5F5F5] shadow-md border-[0.5px] rounded-[12px] flex flex-col items-center gap-y-[39px] lg:py-[48px] lg:px-[60px]">
-        <div className="w-[215px] flex flex-col lg:gap-y-[12px] items-center ">
-          <h2 className="text-[#000000] text-[24px] leading-[35.2px] font-[700]">
+      className="w-full lg:w-[451px] mt-[48px] lg:mt-0 bg-white lg:border-[#F5F5F5] lg:shadow-md lg:border-[0.5px] lg:rounded-[12px] flex flex-col items-center justify-between lg:justify-start  lg:py-[20px] xl:py-[30px] 2xl:py-[48px] lg:px-[60px]">
+        <div className="w-full flex flex-col items-center">
+        <div className="lg:w-[215px] flex flex-col gap-y-[12px] items-center ">
+          <h2 className=" font-montserrat text-[#1E1E1E] lg:text-[#000000] text-[20px] lg:text-[24px] leading-[35.2px] font-[700]">
             Sign Up
           </h2>
-          <p className="font-[400] text-[#1E1E1E] text-[14px] leading-[23.6px] text-center">
-            Take control of your time and boost productivity
+          <p className="font-[400] font-montserrat text-[#1E1E1E] text-[10px] lg:text-[14px] leading-[23.6px] text-center">
+            Take control of your time and boost productivity!
           </p>
         </div>
-        <div className="flex flex-col mt-[52px] gap-y-[12px] font-[400]">
+        <div className="flex flex-col mt-[72px] lg:-[35px] xl:mt-[45px] 2xl:mt-[52px] gap-y-[12px] font-[400]">
           <input
             type="text"
             placeholder="Name"
@@ -147,16 +149,16 @@ const SignUp = () => {
             </div>
           </div>
         </div>
-
-        <div className="w-full flex flex-col gap-y-[20px]">
+</div>
+        <div className="w-full flex flex-col gap-y-[20px] lg:mt-[58px] xl:mt-[60px] 2xl:mt-[72px]">
           <button className="w-full text-[#FFFFFF] bg-[#034592] font-[500] text-[16px] leading-[19.5px] rounded-[4px] p-[10px] transition ease-out active:duration-300">
-            Sign up
+            Sign up 
           </button>
-          <div className="text-[#737373] text-[12px] leading-[14.63px] font-[400]">
+          <div className="text-center lg:text-start text-[#737373] text-[12px] leading-[14.63px] font-[400]">
             <span className="">Already have an account?</span>
-            <button className="text-[14px] leading-[17.07px] text-[#034592] underline ml-1">
+            <Link to='/signin' className="text-[14px] leading-[17.07px] text-[#034592] underline ml-1">
               Sign in
-            </button>
+            </Link>
           </div>
         </div>
       </form>
