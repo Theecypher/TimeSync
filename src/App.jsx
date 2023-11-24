@@ -1,14 +1,16 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import ResetPassword from './Pages/Onboarding/ResetPassword'
+import CreatePassword from './Pages/Onboarding/CreatePassword'
+import ResetCode from './Pages/Onboarding/ResetCode'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div>
-      <h1>Welcome Everyone!</h1>
+      {/* <CreatePassword /> */}
+      {/* <ResetPassword /> */}
+      <ResetCode />
     </div>
   )
 }
