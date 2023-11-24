@@ -78,7 +78,7 @@ const SignIn = () => {
             Sign in
           </button>
           <p className='w-full py-5 text-center'>
-            Don't have an account? <Link className='text-blue-600'>Create an account</Link>
+            Don't have an account? <Link to='/' className='text-blue-600'>Create an account</Link>
           </p>
         </div>
       </div>
