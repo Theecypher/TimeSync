@@ -13,9 +13,9 @@ const SignIn = () => {
             <input type='email' placeholder='Email' className='w-full h-12  rounded-md border-[0.4px]  placeholder-gray outline-none pl-4'/>
             <input type='password' placeholder='Password' className='w-full h-12  rounded-md border-[0.4px]  placeholder-gray outline-none pl-4'/>
         </form>
-        <Link><p className='py-5 text-blue-600'>Reset Password ↗</p></Link>
+        <Link to="/resetPassword" ><p className='py-5 text-blue-600'>Reset Password ↗</p></Link>
         <button type="submit" className=' w-80 h-12 bg-blue-800 text-white rounded mx-2' >Login →</button>
-        <p className='w-full py-5 text-center'>Don't have an account? <Link className='text-blue-600'>Create an account →</Link></p>
+        <p className='w-full py-5 text-center'>Don't have an account? <Link to="/" className='text-blue-600'>Create an account →</Link></p>
         </div>
     </div>
   )

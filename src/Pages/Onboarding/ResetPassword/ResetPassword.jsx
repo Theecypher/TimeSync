@@ -29,7 +29,7 @@ const ResetPassword = () => {
                 <div className="m-6">
                     <div className="flex justify-center text-[14px]">
                         <p className="">Don't have an account? </p>
-                        <Link>  Create account
+                        <Link to="/" >  Create account
                         <FaArrowRight className="inline" />
                         </Link>
                     </div>
