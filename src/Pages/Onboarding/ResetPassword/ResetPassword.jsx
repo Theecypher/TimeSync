@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ResetPassword = () => {
     return (
-        <section className="flex text-center items-center justify-center bg-[#b6dbff] h-screen">
+        <section className="flex text-center items-center justify-center bg-blue-300 h-screen">
             <div className="w-[330px] px-3 md:w-[400px] border-[2px] border-grey shadow-lg shadow-grey-200/60 rounded-md bg-white">
                 <div className="py-3">
                     <h2 className="py-[10px]">Logo</h2>
