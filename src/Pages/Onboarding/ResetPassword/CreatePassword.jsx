@@ -1,6 +1,6 @@
 const CreatePassword = () => {
     return (
-        <section className="flex text-center items-center justify-center bg-blue-300 h-screen">
+        <section className="flex text-center  items-center justify-center bg-blue-300 h-screen">
             <div className="w-[300px] px-3 h-[380px] md:w-[400px] border-[1.7px] rounded-lg border-gray border-gray-200/60 bg-white">
                 <div className="py-3">
                     <h2 className="py-[10px]">Logo</h2>
