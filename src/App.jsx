@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import './App.css'
-import ResetPassword from './Pages/Onboarding/ResetPassword'
-import CreatePassword from './Pages/Onboarding/CreatePassword'
-import ResetCode from './Pages/Onboarding/ResetCode'
+
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import SignIn from './signIn/SignIn';
 
 function App() {
+  
 
   return (
-    <div>
-      {/* <CreatePassword /> */}
-      {/* <ResetPassword /> */}
-      <ResetCode />
-    </div>
+    <>
+    <Routes>
+      <Route path='/signin' element={<SignIn/>}/>
+    </Routes>
+    </>
   )
 }
 
