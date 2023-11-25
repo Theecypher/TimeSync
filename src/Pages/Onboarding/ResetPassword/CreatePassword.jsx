@@ -26,7 +26,7 @@ const CreatePassword = () => {
                      />
                 </div>
 
-                <div className="m-6 mt-4rem lg:mt-[7rem]">
+                <div className="m-6 mt-[7rem]">
                      <button className="border mb-[17px] w-full rounded-lg bg-[#004592] h-12 text-white font-bold md:text-xl">
                         Reset password
                      </button>
