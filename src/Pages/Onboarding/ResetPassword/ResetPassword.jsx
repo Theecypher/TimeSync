@@ -10,7 +10,7 @@ const ResetPassword = () => {
                 <div className="lg:py-3 h-[115px]">
                     <h2 className="hidden font-montserrat lg:block py-[10px] lg:py-2">Logo</h2>
                     <h2 className="font-bold text-[32px] md:text-[36px] pb-2 leading-[35.2px]">Reset password</h2>
-                    <p className="text-[10px] pt-3 lg:pt-1 font-montserrat w-[44%] lg:w-[89%] lg:text-[14px] mx-auto text-[#98a2b3]">
+                    <p className="text-[10px] pt-3 lg:pt-1 font-montserrat w-[50%] lg:w-[89%] lg:text-[14px] mx-auto text-[#98a2b3]">
                        Provide the email on your account and we'll 
                        send the details to reset your password
                     </p>
@@ -23,7 +23,7 @@ const ResetPassword = () => {
                      />
                 </div>
 
-                <div className="m-6 lg:mt-[4rem]">
+                <div className="m-6 mt-9 lg:mt-[4rem]">
                      <button className="border mb-[17px] w-full rounded-lg bg-[#004592] h-12 text-white font-bold md:text-xl">
                         Reset password
                      </button>
