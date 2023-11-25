@@ -3,43 +3,44 @@ import { Link } from "react-router-dom";
 
 const ResetPassword = () => {
     return (
-        <section className="flex text-center items-center justify-center bg-blue-300 h-screen">
-            <div className="w-[330px] px-3 md:w-[400px] border-[2px] border-grey shadow-lg shadow-grey-200/60 rounded-md bg-white">
-                <div className="py-3">
-                    <h2 className="py-[10px]">Logo</h2>
-                    <h2 className="font-bold text-[32px] md:text-[36px]">Reset password</h2>
-                    <p className="text-[14px] md:w-[80%] mx-auto">
+        <section className="flex text-center lg:items-center lg:justify-center lg:bg-blue-300 h-screen">
+            <form
+            className="w-full lg:w-[451px] mt-[48px] lg:mt-0 bg-white lg:border-[#F5F5F5] lg:shadow-md lg:border-[0.5px] lg:rounded-[12px] items-center justify-between lg:justify-start  lg:py-[20px] xl:py-[30px] 2xl:py-[48px] lg:px-[60px]"
+            >
+                <div className="lg:py-3 h-[115px]">
+                    <h2 className="hidden font-montserrat lg:block py-[10px] lg:py-2">Logo</h2>
+                    <h2 className="font-bold text-[32px] md:text-[36px] pb-2 leading-[35.2px]">Reset password</h2>
+                    <p className="text-[10px] pt-3 lg:pt-1 font-montserrat w-[44%] lg:w-[89%] lg:text-[14px] mx-auto text-[#98a2b3]">
                        Provide the email on your account and we'll 
                        send the details to reset your password
                     </p>
                 </div>
 
-                <form className="w-full my-2 px-7 pt-3 space-y-4 md:px-8">
+                <div className="w-full my-2 px-7 pt-3 lg:pt-[35px] space-y-4 md:px-8 h-[255px] lg:h-12">
                     <input type="text"
                     className="w-full px-2 mb-3 rounded-md border h-12"
                     placeholder="Email"
                      />
+                </div>
 
-
-                     <button className="border w-full rounded bg-[#004592] h-12 text-white font-bold md:text-xl">
+                <div className="m-6 lg:mt-[4rem]">
+                     <button className="border mb-[17px] w-full rounded-lg bg-[#004592] h-12 text-white font-bold md:text-xl">
                         Reset password
                      </button>
-                </form>
 
-                <div className="m-6">
                     <div className="flex justify-center text-[14px]">
-                        <p className="">Don't have an account? </p>
-                        <Link to="/" >  Create account
-                        <FaArrowRight className="inline" />
+                        <p className="mr-1">Don't have an account? </p>
+                        <Link className="text-[#004592] underline" to="/" >  Create account
+                        <FaArrowRight className="ml-1 hidden lg:inline" />
                         </Link>
                     </div>
 
-                    <div className="m-4">
+                    <div className="m-4 hidden lg:block">
                     <Link>Return to login</Link>
 
                     </div>
                 </div>
-            </div>
+            </form>
         </section>
      );
 }
