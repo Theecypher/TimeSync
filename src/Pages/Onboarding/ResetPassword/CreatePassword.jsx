@@ -10,7 +10,7 @@ const CreatePassword = () => {
                 <div className="lg:py-1 h-[115px] lg:h-[95px]">
                     <h2 className="hidden font-montserrat lg:block py-[10px] lg:py-2">Logo</h2>
                     <h2 className="font-bold text-[20px] md:text-[28px] pb-1 leading-[35.2px]">Create new password</h2>
-                    <p className="text-[10px] lg:pt-1 font-montserrat w-[44%] lg:w-[89%] lg:text-[14px] mx-auto text-[#98a2b3]">
+                    <p className="text-[10px] lg:pt-1 font-montserrat w-[68%] md:w-[50%] lg:w-[89%] lg:text-[14px] mx-auto text-[#98a2b3]">
                        Create new password for your account
                     </p>
                 </div>
@@ -26,7 +26,7 @@ const CreatePassword = () => {
                      />
                 </div>
 
-                <div className="m-6 lg:mt-[7rem]">
+                <div className="m-6 mt-4rem lg:mt-[7rem]">
                      <button className="border mb-[17px] w-full rounded-lg bg-[#004592] h-12 text-white font-bold md:text-xl">
                         Reset password
                      </button>

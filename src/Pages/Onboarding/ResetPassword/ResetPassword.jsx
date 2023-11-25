@@ -16,7 +16,7 @@ const ResetPassword = () => {
                     </p>
                 </div>
 
-                <div className="w-full my-2 px-7 pt-3 lg:pt-[35px] space-y-4 md:px-8 h-[255px] lg:h-12">
+                <div className="w-full my-4 px-7 pt-3 lg:pt-[35px] space-y-4 md:px-8 h-[255px] lg:h-12">
                     <input type="text"
                     className="w-full px-2 mb-3 rounded-md border h-12"
                     placeholder="Email"
