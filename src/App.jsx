@@ -8,7 +8,7 @@ import ResetCode from "./Pages/Onboarding/ResetPassword/ResetCode";
 
 function App() {
   return (
-    <>
+    < div className=' font-montserrat'>
       <Routes>
         <Route path="/" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
@@ -16,7 +16,7 @@ function App() {
         <Route path="/createPassword" element={<CreatePassword />} />
         <Route path="/resetCode" element={<ResetCode />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
