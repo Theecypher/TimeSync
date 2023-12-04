@@ -16,13 +16,13 @@ const SignUp = () => {
   const validateSignup = () => {
     let errors = {};
     if (!signupDetails.name) {
-      errors.email = "Name field cannot be empty";
+      errors.name = "Name field cannot be empty";
     }
     if (!signupDetails.email) {
       errors.email = "Email field cannot be empty";
     }
     if (!signupDetails.password) {
-      errors.email = " Password must contain at least 8 characters";
+      errors.password = " Password must contain at least 8 characters";
     }
     return errors;
   };
@@ -37,7 +37,7 @@ const SignUp = () => {
     }
   };
   return (
-    <div className="w-full lg:bg-[#B6D8FF] font-montserrat flex px-[16px] lg:px-0 lg:flex-col lg:items-center lg:justify-center lg:backdrop-blur-[30px] lg:bg-[rgba(255, 255, 255, 0.2)] h-[100vh] ">
+    <div className="w-full lg:bg-[#B6D8FF] font-montserrat flex px-[16px] lg:px-0 lg:flex-col lg:items-center lg:justify-center lg:backdrop-blur-[30px] lg:bg-[rgba(255, 255, 255, 0.2)] h-[100vh]">
       <form
         onSubmit={handleSignUp}
         className="w-full lg:w-[451px] mt-[48px] lg:mt-0 bg-white lg:border-[#F5F5F5] lg:shadow-md lg:border-[0.5px] lg:rounded-[12px] flex flex-col items-center justify-between lg:justify-start  lg:py-[20px] xl:py-[30px] 2xl:py-[48px] lg:px-[60px]"
@@ -58,7 +58,7 @@ const SignUp = () => {
               name="name"
               value={signupDetails.name}
               onChange={handleOnchange}
-              className="text-[#666666] text-[14px] leading-[24.6px] font-[400] lg:-[62px] w-[331px] rounded-[4px] border-[0.5px] pl-[12px] py-[10px] pr-[10px] "
+              className={`${error?.name && 'border-red-400 '} "text-[#666666] text-[14px] leading-[24.6px] font-[400] lg:-[62px] w-[331px] rounded-[4px] border-[0.5px] pl-[12px] py-[10px] pr-[10px] "`}
             />
             <input
               type="email"
@@ -66,7 +66,7 @@ const SignUp = () => {
               name="email"
               value={signupDetails.email}
               onChange={handleOnchange}
-              className="text-[#666666] text-[14px] leading-[24.6px] font-[400] lg:-[62px] w-[331px] rounded-[4px] border-[0.5px] pl-[12px] py-[10px] pr-[10px] "
+              className={`${error?.emmail && 'border-red-400'} "text-[#666666] text-[14px] leading-[24.6px] font-[400] lg:-[62px] w-[331px] rounded-[4px] border-[0.5px] pl-[12px] py-[10px] pr-[10px] "`}
             />
             <input
               type="password"
@@ -74,7 +74,7 @@ const SignUp = () => {
               name="password"
               value={signupDetails.password}
               onChange={handleOnchange}
-              className="text-[#666666] text-[14px] leading-[24.6px] font-[400] lg:-[62px] w-[331px] rounded-[4px] border-[0.5px] pl-[12px] py-[10px] pr-[10px] "
+              className={` ${error?.password && 'border border-red-400'} "text-[#666666] text-[14px] leading-[24.6px] font-[400] lg:-[62px] w-[331px] rounded-[4px] border-[0.5px] pl-[12px] py-[10px] pr-[10px] "`}
             />
             {error &&
             <div className="flex flex-col px-[12px]">
@@ -113,8 +113,8 @@ const SignUp = () => {
                   <path
                     d="M4.47461 8.10522C4.47461 8.10522 5.48514 8.68154 5.9904 9.52628C5.9904 9.52628 7.50619 6.21049 9.52724 5.10522"
                     stroke="#0F973D"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
 }
@@ -157,8 +157,8 @@ const SignUp = () => {
                 <path
                   d="M4.47461 8.10522C4.47461 8.10522 5.48514 8.68154 5.9904 9.52628C5.9904 9.52628 7.50619 6.21049 9.52724 5.10522"
                   stroke="#0F973D"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
 }
@@ -201,8 +201,8 @@ const SignUp = () => {
                   <path
                     d="M4.47461 8.10522C4.47461 8.10522 5.48514 8.68154 5.9904 9.52628C5.9904 9.52628 7.50619 6.21049 9.52724 5.10522"
                     stroke="#0F973D"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
             }
