@@ -231,6 +231,7 @@ const SignUp = () => {
           </div>
         </div>
       </form>
+      <Link to ='/dashboard'>Dashboard</Link>
     </div>
   );
 };
