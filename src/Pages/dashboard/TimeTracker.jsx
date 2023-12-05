@@ -35,6 +35,7 @@ const TimeTracker = () => {
         </button>
       </div>
       {/* Main View */}
+      {activeView =="timer" ? <>
       {tasks.map((task, index)=>(
       <div
         className={`w-full mt-[32px] flex flex-row justify-between items-center py-[20px] pl-[28px] pr-[21px]  ${ task.status=='Running' && 'border-[1px] border-main-blue'}`}
@@ -88,6 +89,12 @@ const TimeTracker = () => {
         </div>
       </div>
       ))}
+      </>
+      : 
+      <div>
+        
+      </div>
+      }
     </div>
   );
 };
