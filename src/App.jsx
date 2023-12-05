@@ -7,7 +7,7 @@ import SignUp from "./Pages/Onboarding/sign-up/SignUp";
 import ResetCode from "./Pages/Onboarding/ResetPassword/ResetCode";
 import DashboardLayout from "./Pages/dashboard/layout/DashboardLayout";
 import TimeTracker from "./Pages/dashboard/TimeTracker";
-import Dashboard from "./Pages/dashboard/dashboard";
+import Dashboard from "./Pages/dashboard/Dashboard";
 
 function App() {
   return (

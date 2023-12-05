@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useStore } from "zustand";
 
 const SignUp = () => {
   const [signupDetails, setSignupDetails] = useState({
@@ -8,6 +9,7 @@ const SignUp = () => {
     password: "",
   });
   const [error, setError] = useState(null);
+  // const {baseUrl} = useStore()
 
   const handleOnchange = (e) => {
     const { name, value } = e.target;
