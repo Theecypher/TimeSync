@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import calendar from '../../assets/calendar.svg'
 import switchOn from '../../assets/switch-on.svg'
 import { tasksData } from "./taskData";
+import useStore from "../../zustand-store/store";
 
 const TimeTracker = () => {
   const [activeView, setActiveView] = useState("timer");
   const [tasks, setTasks] = useState(tasksData)
+  const {baseUrl} = useStore()
+  console.log(baseUrl)
   return (
     <div className="w-full flex flex-col pt-[32px]">
       <h2 className=" pl-[20px] text-[48px] text-[#3D3D3D] font-[500] leading-[48px] tracking-[-1.92px]">
@@ -38,6 +41,7 @@ const TimeTracker = () => {
       {activeView =="timer" ? <>
       {tasks.map((task, index)=>(
       <div
+      key={index}
         className={`w-full mt-[32px] flex flex-row justify-between items-center py-[20px] pl-[28px] pr-[21px]  ${ task.status=='Running' && 'border-[1px] border-main-blue'}`}
       >
         <div className="flex items-center gap-x-[20px]">
@@ -92,7 +96,7 @@ const TimeTracker = () => {
       </>
       : 
       <div>
-        
+
       </div>
       }
     </div>
