@@ -211,7 +211,7 @@ const SignUpForm = ({handleSignUp, signupDetails, handleOnchange, error, isLoadi
           <div className="text-center lg:text-start text-[#737373] text-[12px] leading-[14.63px] font-[400]">
             <span className="">Already have an account?</span>
             <Link
-              to="/signin"
+              to="/"
               className="text-[14px] leading-[17.07px] text-[#034592] underline ml-1"
             >
               Sign in
