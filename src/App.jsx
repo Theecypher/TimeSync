@@ -8,10 +8,12 @@ import ResetCode from "./Pages/Onboarding/ResetPassword/ResetCode";
 import DashboardLayout from "./Pages/dashboard/layout/DashboardLayout";
 import TimeTracker from "./Pages/dashboard/TimeTracker";
 import Dashboard from "./Pages/dashboard/Dashboard";
+import { Toaster } from "sonner";
 
 function App() {
   return (
     <div className=" font-montserrat">
+      <Toaster position="top-right" />
       <Routes>
         <Route path="/" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
