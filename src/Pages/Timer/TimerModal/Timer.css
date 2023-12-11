@@ -1,0 +1,30 @@
+/* .Timer-modal {
+    padding: 10px !important;
+} */
+
+/* input[type = "date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="date"]::-moz-calendar-picker-indicator {
+    display: none;
+}
+
+input[type="date"]::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+} */
+
+input[type = "date"]::-webkit-calendar-picker-indicator {
+    background-image: url("../../../assets/chevron-down.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 15px;
+}
+
+input[type = "date"]::before {
+    position: absolute;
+    left: 6px;
+    content: url("../../../assets/calendar.svg");
+}
