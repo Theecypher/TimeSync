@@ -3,6 +3,7 @@ import SideMenu from "./SideMenu";
 import TopNav from "./TopNav";
 
 const DashboardLayout = () => {
+  
   return (
     <div className="w-full relative flex flex-row ">
       <SideMenu />
