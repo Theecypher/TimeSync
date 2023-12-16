@@ -31,7 +31,7 @@ function App() {
   },[otpTime])
 
   return (
-    <div className=" font-montserrat">
+    <div className=" font-montserrat" style={{scrollbarWidth: 'thin', scrollbarColor: '#fff'}}>
       <Toaster position="top-right" />
       <Routes>
         <Route path="/signup" element={<SignUp otpTime={otpTime} setOtpTime={setOtpTime} />} />

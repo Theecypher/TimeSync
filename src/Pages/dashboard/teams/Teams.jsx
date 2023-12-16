@@ -20,9 +20,10 @@ const Teams = () => {
     },
   ];
   return (
-    <div className="w-full flex flex-row ">
-      <aside className="w-[254px] flex-shrink-0 h-[calc(100vh-88px)]  bg-[#FDF3F3]  overflow-y-auto "></aside>
-      <div className="w-full flex flex-col ">
+    <div className="w-full relative flex flex-row ">
+      {/* Side Nav */}
+      <aside className="fixed w-[254px] flex-shrink-0 h-[calc(100vh-88px)]  bg-[#FDF3F3]  overflow-y-auto "></aside>
+      <div className="w-full flex flex-col pl-[254px] ">
         {/* menutop */}
         <div className="w-full h-[88px] flex justify-between pl-[32px] pr-[24px] py-[24px] text-[16px] font-[500] leading-[16px] tracking-[-0.64px] text-[#7B7C7C] ">
           <div className="flex gap-x-[16px] ">
@@ -39,7 +40,7 @@ const Teams = () => {
           <p className="font-[600]">Digital Productivity tools</p>
         </div>
         {/* Main screen */}
-        <div className="w-full bg-[#FAFAFA] min-h-[calc(100vh-176px)]">
+        <main className="w-full bg-[#FAFAFA] min-h-[calc(100vh-176px)]">
           {
             activeTab == 'Chat' ? 
             <Chat/>
@@ -50,7 +51,7 @@ const Teams = () => {
             activeTab == 'Tasks' &&
             <Tasks/>
           }
-        </div>
+        </main>
       </div>
     </div>
   );
