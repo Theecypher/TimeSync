@@ -71,7 +71,9 @@ const Shared = () => {
   const [sharedList, setSharedList] = useState(sharedLists);
   return (
     <div className="w-full flex flex-col">
+      {/* Sub menu */}
       <div className="w-full h-[72px] flex justify-end">
+        {/* Sort */}
         <div className="flex items-center pr-[21px] gap-x-[4px] text-[#1E1E1E]">
           <span className="font-[500] text-[16px] leading-[16px] tracking-[-0.64px]">
             {" "}
@@ -113,7 +115,7 @@ const Shared = () => {
           </svg>
         </div>
       </div>
-      <main className="w-full flex flex-col gap-y-[4px]">
+      <main className="w-full flex flex-col justify-center gap-y-[4px]">
         {sharedList &&
           sharedList.map((list, index) => (
             <div
