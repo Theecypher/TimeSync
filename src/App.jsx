@@ -11,6 +11,7 @@ import Dashboard from "./Pages/dashboard/Dashboard";
 import { Toaster } from "sonner";
 import ShowTimerModal from "./Pages/Timer/TimerModal/testTimer";
 import Onboarding from "./Pages/Onboarding/sign-up/onboarding/Onboarding";
+import Teams from "./Pages/dashboard/teams/Teams";
 
 function App() {
   const [otpTime, setOtpTime] = useState(localStorage.getItem('otp') || 300)
@@ -42,6 +43,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="time-tracker" element={<TimeTracker />} />
+          <Route path='teams' element={<Teams/>}/>
         </Route>
         <Route path="/showTimerModal" element={<ShowTimerModal />} />
       </Routes>
