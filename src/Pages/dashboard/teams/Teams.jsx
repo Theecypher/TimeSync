@@ -23,9 +23,9 @@ const Teams = () => {
     <div className="w-full relative flex flex-row ">
       {/* Side Nav */}
       <aside className="fixed w-[254px] flex-shrink-0 h-[calc(100vh-88px)]  bg-[#FDF3F3]  overflow-y-auto "></aside>
-      <div className="w-full flex flex-col pl-[254px] ">
+      <div className="w-full relative flex flex-col pl-[254px] ">
         {/* menutop */}
-        <div className="w-full h-[88px] flex justify-between pl-[32px] pr-[24px] py-[24px] text-[16px] font-[500] leading-[16px] tracking-[-0.64px] text-[#7B7C7C] ">
+        <div className="sticky top-[88px] z-[99] w-full h-[88px] bg-white flex justify-between pl-[32px] pr-[24px] py-[24px] text-[16px] font-[500] leading-[16px] tracking-[-0.64px] text-[#7B7C7C] ">
           <div className="flex gap-x-[16px] ">
             {menuTabs.map((tab, index) => (
               <button
