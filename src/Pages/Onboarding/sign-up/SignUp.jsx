@@ -99,6 +99,7 @@ const SignUp = () => {
       toast.warning("Please check all input fields");
     }
   };
+  
   return (
     <div className="w-full lg:bg-[#B6D8FF] font-montserrat flex px-[16px] lg:px-0 lg:flex-col lg:items-center lg:justify-center lg:backdrop-blur-[30px] lg:bg-[rgba(255, 255, 255, 0.2)] h-[100vh]">
       {!hasSignedUp ? 
