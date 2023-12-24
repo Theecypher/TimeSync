@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import VerifyMail from "./components/VerifyMail";
 import SignUpForm from "./components/SignUpForm";
 
-const SignUp = () => {
+const SignUp = ({otpTime, setOtpTime}) => {
   const [signupDetails, setSignupDetails] = useState({
     name: "",
     email: "",
@@ -19,6 +19,7 @@ const SignUp = () => {
   const { baseUrl, updateToken } = useStore();
   const [hasSignedUp, setHasSignedUp] = useState(false)
   const navigateTo = useNavigate();
+  // console.log(hasSignedUp)
 
   // useEffect(()=>{
   // console.log(psswdError )
@@ -102,10 +103,10 @@ const SignUp = () => {
   
   return (
     <div className="w-full lg:bg-[#B6D8FF] font-montserrat flex px-[16px] lg:px-0 lg:flex-col lg:items-center lg:justify-center lg:backdrop-blur-[30px] lg:bg-[rgba(255, 255, 255, 0.2)] h-[100vh]">
-      {!hasSignedUp ? 
+      {hasSignedUp ? 
       <SignUpForm handleSignUp={handleSignUp} signupDetails={signupDetails} handleOnchange={handleOnchange} error={error} isLoading={isLoading} psswdError={psswdError} />
       :
-      <VerifyMail/>
+      <VerifyMail otpTime={otpTime} setOtpTime={setOtpTime}/>
 }
       {/* <Link to="/dashboard">Dashboard</Link> */}
     </div>

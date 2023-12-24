@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Oval } from "react-loader-spinner";
 
 
 const SignUpForm = ({handleSignUp, signupDetails, handleOnchange, error, isLoading, psswdError}) => {
+
   return (
     <form
         onSubmit={handleSignUp}

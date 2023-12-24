@@ -5,13 +5,14 @@ import { useEffect } from "react";
 import useStore from "../../../zustand-store/store";
 
 const DashboardLayout = () => {
-  const {token} = useStore()
+   const {token} = useStore()
   const navigateTo = useNavigate()
   useEffect(()=>{
     if(!token || token== '' || token== null){
       navigateTo('/')
     }
   },[])
+
   return (
     <div className="w-full relative flex flex-row ">
       <SideMenu />

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../signIn/SignIn.css';
 
+
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -9,6 +10,7 @@ const SignIn = () => {
   const [passwordError, setPasswordError] = useState(false);
 
   const handleEmailChange = (e) => {
+    console.log(e.target.value)
     setEmail(e.target.value);
     setEmailError(false);
   };
@@ -20,7 +22,17 @@ const SignIn = () => {
 
   const handleSignIn = (e) => {
     e.preventDefault();
-
+    console.log("submitted form------>>")
+    axios.post('https://timesyncofficial.onrender.com/login', {
+      email: email,
+      password: password
+    })
+    .then((response) => {
+       console.log(response.data)
+    })
+    .catch((err) => {
+      console.log(err.response)
+    })
    
     if (!email) {
       setEmailError(true);
@@ -49,6 +61,7 @@ const SignIn = () => {
           <input
             type='email'
             placeholder='Email'
+            name='email'
             className={`w-full h-12 rounded-md border-[0.4px] placeholder-gray outline-none pl-4 ${
               emailError ? 'border-red-500' : ''
             }`}
@@ -60,6 +73,7 @@ const SignIn = () => {
           <input
             type='password'
             placeholder='Password'
+            name='password'
             className={`w-full h-12 rounded-md border-[0.4px] placeholder-gray outline-none pl-4 ${
               passwordError ? 'border-red-500' : ''
             }`}

@@ -3,16 +3,31 @@ import useStore from "../../../../zustand-store/store";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-const VerifyMail = () => {
+const VerifyMail = ({otpTime, setOtpTime}) => {
   const [otpValues, setOtpValues] = useState(["", "", "", ""]);
   const inputRefs = [useRef(), useRef(), useRef(), useRef()];
   const [isLoading, setIsLoading] = useState(false);
+  const date = new Date().getTime()
+  let timeInMins = date /(1000*60)
+  let add10mins = 10 * 60 * 1000
+
+
+  const [currentTime, setCurrentTime] = useState(localStorage.getItem('currentTime') || localStorage.setItem('currentTime', timeInMins))
+
+  
+  const formatTime=(time)=>{
+    const mins = Math.floor(time/60)
+    const secs = time % 60
+    return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`
+  }
+ 
+  
   const { token } = useStore();
-  // console.log(token)
   const { baseUrl, updateToken } = useStore();
-  // console.log(token)
-  const navigateTo = useNavigate();
+  const navigateTo = useNavigate()
+
   const onInputChange = (index, value) => {
     console.log(value);
     let newOtpValues = [...otpValues];
@@ -67,9 +82,11 @@ const VerifyMail = () => {
       .post(`${baseUrl}/auths/resend-otp`, "", { headers })
       .then((response) => {
         console.log(response);
-        toast.success(response?.data?.data?.message);
+        toast.success(response?.data?.message || response?.data?.data?.message);
+        setOtpTime(300)
       })
       .catch((err) => {
+        toast.error('Failed, could not send otp !')
         console.log(err);
       });
   };
@@ -100,16 +117,16 @@ const VerifyMail = () => {
             />
           ))}
         </div>
-        <div className="flex">
-          <p className="text-[14px] font-[400] leading-[23.6px]">
-            Code will expire in 10:00{" "}
+        <div className="flex flex-wrap">
+          <p className="flex-grow0 text-[14px] font-[400] leading-[23.6px]">
+            Code will expire in {formatTime(otpTime)}
           </p>
           <button
+            disabled ={otpTime >0}
             type="button"
             onClick={handleResendOtp}
-            className="pl-1 text-main-blue font-[400] text-[14px] underline underline-offset-1 leading-[23.6px]"
+            className="pl-1 text-main-blue font-[400] text-[14px] underline underline-offset-1 leading-[23.6px] disabled:opacity-50"
           >
-            {" "}
             Resend code
           </button>
         </div>
