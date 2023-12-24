@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import ResetPassword from "./Pages/Onboarding/ResetPassword/ResetPassword";
 import SignIn from "./Pages/Onboarding/signIn/SignIn";
-import CreatePassword from "./Pages/Onboarding/ResetPassword/CreatePassword";
 import SignUp from "./Pages/Onboarding/sign-up/SignUp";
-import ResetCode from "./Pages/Onboarding/ResetPassword/ResetCode";
 import DashboardLayout from "./Pages/dashboard/layout/DashboardLayout";
 import TimeTracker from "./Pages/dashboard/TimeTracker";
 import Dashboard from "./Pages/dashboard/Dashboard";
 import { Toaster } from "sonner";
 import ShowTimerModal from "./Pages/Timer/TimerModal/testTimer";
+import ResetPassword from "./Pages/Onboarding/ResetPassword/ResetPassword";
+import CalendarView from "./Pages/Timer/TimerModal/CalendarView";
 import Onboarding from "./Pages/Onboarding/sign-up/onboarding/Onboarding";
 import Teams from "./Pages/dashboard/teams/Teams";
 
@@ -44,6 +43,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="time-tracker" element={<TimeTracker />} />
           <Route path='teams' element={<Teams/>}/>
+          <Route path="calendar-view" element={<CalendarView />} />
         </Route>
         <Route path="/showTimerModal" element={<ShowTimerModal />} />
       </Routes>
