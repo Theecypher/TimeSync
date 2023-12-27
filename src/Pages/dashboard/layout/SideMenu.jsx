@@ -23,7 +23,7 @@ const SideMenu = () => {
     //   <Link to="time-tracker">Time Tracker</Link>
     // </div>
     <aside
-      className={`lg:w-[232px] w-full h-screen fixed top-0 lg:sticky bg-white z-[999] ${
+      className={`lg:w-[250px] w-full h-screen fixed top-0 lg:sticky bg-white z-[999] ${
         isOpen ? "w-[60px]" : ""
       }`}
     >
