@@ -11,6 +11,9 @@ import ResetPassword from "./Pages/Onboarding/ResetPassword/ResetPassword";
 import CalendarView from "./Pages/Timer/TimerModal/CalendarView";
 import Onboarding from "./Pages/Onboarding/sign-up/onboarding/Onboarding";
 import Teams from "./Pages/dashboard/teams/Teams";
+import About from "./Pages/about/About";
+import Why from "./Pages/why/Why";
+import Features from "./Pages/features/Features";
 import ResetComponentPassword from "./Pages/Onboarding/ResetPassword/CreatePasswordComponent";
 import ResetCode from "./Pages/Onboarding/ResetPassword/ResetCode";
 
@@ -42,6 +45,11 @@ function App() {
         <Route path="/" element={<SignIn />} />
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/resetPassword" element={<ResetPassword />} />
+        <Route path="/createPassword" element={<CreatePassword />} />
+        <Route path="/resetCode" element={<ResetCode />} />
+        <Route path="/about" element={<About/>}/>
+        <Route path="/why" element={<Why/>}/>
+        <Route path="/features" element={<Features/>}/>
         <Route path="/createPassword" element={<ResetComponentPassword />} />
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
