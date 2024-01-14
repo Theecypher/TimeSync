@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import calendar from '../../assets/calendar.svg'
-import switchOn from '../../assets/switch-on.svg'
-import { tasksData } from "./taskData";
-import useStore from "../../zustand-store/store";
-import CalendarView from "../Timer/TimerModal/CalendarView";
+import calendar from '../../../assets/calendar.svg'
+import switchOn from '../../../assets/switch-on.svg'
+import { tasksData } from "../taskData";
+import useStore from "../../../zustand-store/store";
+import CalendarView from "../../Timer/TimerModal/CalendarView";
 
 const TimeTracker = () => {
   const [activeView, setActiveView] = useState("timer");
