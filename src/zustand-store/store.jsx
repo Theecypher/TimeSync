@@ -2,7 +2,9 @@ import { create } from "zustand";
 
 const useStore = create((set)=>({
     baseUrl : 'https://timesyncofficial.onrender.com/api/v1',
-    otpTime : localStorage.getItem('otpTime' || 600),
+    otpTime : localStorage.getItem('otpTime' || 600), 
+    newToken: "",
+    updateNewToken: (newToken)=>set(()=>({newToken: newToken})),
     setOtpTime: (otpTime)=>{
         const updateTime=()=>{
             // console.log(otpTime)
