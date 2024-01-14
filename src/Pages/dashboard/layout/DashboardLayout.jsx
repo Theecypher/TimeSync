@@ -17,7 +17,7 @@ const DashboardLayout = () => {
     <div className="w-full relative flex flex-row ">
       <SideMenu />
       <div className="w-full">
-        <TopNav setOpenModal={setOpenModal}/>
+        {/* <TopNav setOpenModal={setOpenModal}/> */}
         <Outlet  context={[openModal, setOpenModal]}/>
       </div>
     </div>

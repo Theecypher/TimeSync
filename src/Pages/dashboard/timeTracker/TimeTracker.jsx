@@ -11,7 +11,10 @@ const TimeTracker = () => {
   const {baseUrl} = useStore()
   console.log(baseUrl)
   return (
-    <div className="w-[1048px]  flex flex-col pt-[32px]">
+    <div className="w-[1048px]  flex flex-col pt-[32p]">
+      <div className="w-full bg-white sticky top-0 z-30 h-[88px] border-b-[1px] border-[#F5F5F5] px-[24px] flex  items-center justify-end ">
+       
+       </div>
       <h2 className=" pl-[20px] text-[48px] text-[#3D3D3D] font-[500] leading-[48px] tracking-[-1.92px]">
         Timer Library{" "}
       </h2>
