@@ -3,6 +3,7 @@ import SideMenu from "./SideMenu";
 import TopNav from "./TopNav";
 import { useEffect, useState } from "react";
 import useStore from "../../../zustand-store/store";
+import ProjectModal from "../project/components/ProjectModal";
 
 const DashboardLayout = () => {
   //  const {token} = useStore()
@@ -15,8 +16,9 @@ const DashboardLayout = () => {
   const [openModal, setOpenModal] = useState(false)
   return (
     <div className="w-full relative flex flex-row ">
-      <SideMenu />
+      <SideMenu /> 
       <div className="w-full">
+        <ProjectModal openModal={openModal} closeModal={()=>setOpenModal(false)}/>
         {/* <TopNav setOpenModal={setOpenModal}/> */}
         <Outlet  context={[openModal, setOpenModal]}/>
       </div>

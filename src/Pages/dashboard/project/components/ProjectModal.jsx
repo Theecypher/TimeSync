@@ -5,7 +5,7 @@ import Input from "../../../../components/ui/Input";
 import Select, { Option, OptionGroup } from "../../../../components/ui/Select";
 import Button from "../../../../components/ui/Button";
 
-const ProjectModal = ({ openModal, closeModal, projects, setProjects, setValue}) => {
+const ProjectModal = ({ openModal, closeModal, setValue}) => {
   const [project, setProject] = useState({
     name: "",
     assignedTo: "",
