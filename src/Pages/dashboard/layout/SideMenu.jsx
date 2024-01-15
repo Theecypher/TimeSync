@@ -75,12 +75,14 @@ const SideMenu = () => {
               </span>
             </li>
           </Link>
+          <Link to='project'>
           <li className="relative flex items-center gap-[8px] text-[12px] text-[#7B7C7C] py-2 px-3 my-1 font-medium rounded-md cursor-pointer lg:hover:w-[184px] hover:w-[32px] lg:hover:h-[40px] hover:h-[36px] hover:bg-[#E3EFFC] hover:border-[#B6D8FF] hover:rounded-[4px]">
             <img src={projects} alt="projects" />
             <span className={`hidden lg:inline ${isOpen ? "lg:visible" : ""}`}>
               Projects{" "}
             </span>
           </li>
+          </Link>
           <li className="relative flex items-center gap-[8px] text-[12px] text-[#7B7C7C] py-2 px-3 my-1 font-medium rounded-md cursor-pointer lg:hover:w-[184px] hover:w-[32px] lg:hover:h-[40px] hover:h-[36px] hover:bg-[#E3EFFC] hover:border-[#B6D8FF] hover:rounded-[4px]">
             <img src={analytics} alt="analytics" />
             <span className={`hidden lg:inline ${isOpen ? "lg:visible" : ""}`}>
