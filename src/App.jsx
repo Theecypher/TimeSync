@@ -16,7 +16,7 @@ import Features from "./Pages/features/Features";
 import ResetComponentPassword from "./Pages/Onboarding/ResetPassword/CreatePasswordComponent";
 import ResetCode from "./Pages/Onboarding/ResetPassword/ResetCode";
 import TimeTracker from "./Pages/dashboard/timeTracker/TimeTracker";
-import Project from "./Pages/dashboard/project/project";
+import Project from "./Pages/dashboard/project/Project";
 
 function App() {
   const [otpTime, setOtpTime] = useState(localStorage.getItem("otp") || 300);
