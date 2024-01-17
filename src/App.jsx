@@ -17,8 +17,6 @@ import ResetComponentPassword from "./Pages/Onboarding/ResetPassword/CreatePassw
 import ResetCode from "./Pages/Onboarding/ResetPassword/ResetCode";
 import TimeTracker from "./Pages/dashboard/timeTracker/TimeTracker";
 import Project from "./Pages/dashboard/project/Project";
-import Analytics from "./Pages/dashboard/analytics/Analytics";
-import LandingPage from "./Pages/LandingPage/LandingPage";
 
 function App() {
   const [otpTime, setOtpTime] = useState(localStorage.getItem("otp") || 300);
@@ -45,9 +43,8 @@ function App() {
           path="/signup"
           element={<SignUp otpTime={otpTime} setOtpTime={setOtpTime} />}
         />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/" element={<SignIn />} />
         <Route path="/onboarding" element={<Onboarding />} />
-        <Route path="/" element={<LandingPage/>}/>
         <Route path="/resetPassword" element={<ResetPassword />} />
         <Route path="/resetCode" element={<ResetCode />} />
         <Route path="/about" element={<About/>}/>
@@ -60,7 +57,6 @@ function App() {
           <Route path="teams" element={<Teams />} />
           <Route path="calendar-view" element={<CalendarView />} />
           <Route path="project" element={<Project/>}/>
-          <Route path="analytics" element={<Analytics/>}/>
         </Route>
         <Route path="/showTimerModal" element={<ShowTimerModal />} />
       </Routes>
