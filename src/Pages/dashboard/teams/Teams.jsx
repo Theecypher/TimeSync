@@ -2,11 +2,23 @@ import React, { useState } from "react";
 import Chat from "./components/Chat";
 import Shared from "./components/Shared";
 import Tasks from "./components/Tasks";
-import { MdArrowDropDown, MdKeyboardArrowDown } from "react-icons/md";
+import { MdArrowDropDown, MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import jade from './components/assets/Image-24.png';
+import safinatu from './components/assets/Safinatu.svg';
+import devguy from './components/assets/Devguy.svg';
+import jacob from './components/assets/Jacob.svg';
 
 const Teams = () => {
   const [activeTab, setActiveTab] = useState("Chat");
   const [subMenuActiveTab, setSubMenuActiveTab] = useState('Todo')
+  const [showOptions, setShowOptions] = useState(false);
+
+  const handleToggleOptions = () => {
+    setShowOptions(!showOptions);
+  };
+
+  const containerHeight = showOptions ? '120px' : '70px';
+
   const taskMenu = [
     {
       title: 'Todo',
@@ -57,25 +69,64 @@ const Teams = () => {
   ]
   const chatMenu = [
     {
-      title: 'Todo',
-      
-      fn: ()=>{
-          setSubMenuActiveTab('Todo')
-          console.log('Todo is active')}
+      title: 'Topics', 
+      className: 'font-[700]'
+    },
+
+    {
+      title: '# Problem statement',
+    },
+    {
+      title: '# Onboarding',
       
     },
     {
-      title: 'In progress',
+      title: '# User research',
+      
+    },
+    {
+      title: '# Illustration & icons',
+      
+    },
+    {
+      title: '# Design system',
+      
+    },
+    {
+      title: 'Direct messages', 
+      className: 'font-[700]'
+    },
+    {
+      title: 'Jade',
+      img: jade,
       fn: ()=>{
-        setSubMenuActiveTab('In progress')
-        console.log('In Progress is active')
+          setSubMenuActiveTab('Jade')
+          console.log('Jade is active')}
+      
+    },
+    {
+      title: 'Safinatu',
+      img: safinatu,
+      fn: ()=>{
+        setSubMenuActiveTab('Safinatu')
+        console.log('Safinatu is active')
       }
     },
     {
-      title: 'Completed',
+      title: 'Dev guy',
+      img: devguy,
       fn: ()=>{
-        setSubMenuActiveTab('Completed')
-        console.log('Completed is active')
+        setSubMenuActiveTab('Dev guy')
+        console.log('Dev guy is active')
+      }
+    },   
+    
+    {
+      title: 'Jacob',
+      img: jacob,
+      fn: ()=>{
+        setSubMenuActiveTab('Jacob')
+        console.log('Jacob is active')
       }
     }   
   ]
@@ -99,16 +150,30 @@ const Teams = () => {
       <div className="w-full relative flex flex-row ">
         {/* Side Nav */}
         <aside className="fixed z-30 w-[254px] px-[22px] py-[32px] flex-shrink-0 h-[calc(100vh-88px)] bg-[#FDF3F3]  overflow-y-auto ">
-          <div className=" w-full rounded-[12px] h-[56px] m-auto flex items-center bg-white gap-x-[8px] justify-center">
+          <div className=" w-[209px] rounded-[12px] h-${containerHeight} overflow-hidden m-auto flex items-center bg-white gap-x-[8px] justify-center">
+            <div className="flex flex-col">
+            <div className="flex flex-row">
             <h4 className=" text-[#3D3D3D] text-[20px] font-[500] leading-[20px] tracking-[-0.8px]">Teams</h4>
-            <MdKeyboardArrowDown size={24}/>
+            {showOptions ? (
+            <MdKeyboardArrowUp size={24} onClick={handleToggleOptions} />
+            ) : (
+            <MdKeyboardArrowDown size={24} onClick={handleToggleOptions} />
+            )}
+            </div>
+            {showOptions && (
+            <div>
+              <p className="text-[12px] font-[600]">Digital productivity tools</p>
+              <p className="text-[12px] font-[400]">Charity and non profit website</p>
+              <p className="text-[12px] font-[400]">E learning platform</p>
+            </div>
+             )}
+            </div>
           </div>
           {/* Menu Subcategory */}
           <div className="w-full mt-[100px] flex flex-col items-start gap-y-[20px] text-[#3D3D3D]">
-            <h4>Section</h4>
-              {
-                activeTab === 'Tasks' ?
-                taskMenu?.map((item, index)=>(
+          {activeTab !== 'Chat' && <h4>Section</h4>}
+             {activeTab === 'Tasks' ?
+               taskMenu?.map((item, index) => (
                   <button 
                   key={index} 
                   onClick={(item.fn)}
@@ -134,7 +199,8 @@ const Teams = () => {
                 <button 
                 key={index} 
                 onClick={(item.fn)}
-                className={`${subMenuActiveTab == item.title && 'w-full bg-[#FCB59A] text-start rounded-[4px] '} w-full text-start p-[8px]`}>
+                className={`${subMenuActiveTab == item.title && 'w-full bg-[#FCB59A] text-start rounded-[4px] '} w-full text-start flex p-[8px] ${item.className}`}>
+                  {item.img && <img src={item.img} alt={item.title} className="w-[24px] h-[24px] mr-[8px]"/>}
                   {item.title}
                 </button>
               )))
