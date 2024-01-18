@@ -1,4 +1,3 @@
-import TimeSync from "../../../assets/logo.svg";
 import Line from "../../../assets/Line.svg";
 import TimerImage from "../../../assets/TimerPicture.svg";
 import frame from "../../../assets/frame.svg";
