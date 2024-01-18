@@ -3,13 +3,14 @@ import Line from "../../../assets/Line.svg";
 import TimerImage from "../../../assets/TimerPicture.svg";
 import frame from "../../../assets/frame.svg";
 import TimerFrame from "../../../assets/TimerFrame.svg";
+import BigIphoneWall from "../../../assets/igIphoneWall.svg";
 import "./Hero.css";
 import smallTimerImage from "../../../assets/TimerSmallImage.svg";
 import Navbar from "../Navbar/Navbar";
 
 const Hero = () => {
   return (
-    <section className="flex-shrink-0 bg">
+    <section className="flex-shrink-0 bg bg-[#F9FCFE] md:bg-[#fff]">
       <Navbar />
       {/* <main className="pt-[36px] w-full"> */}
       <div className="flex flex-col items-center justify-center pt-[20px] gap-[8px]">
@@ -34,7 +35,7 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className="flex justify-center flex-shrink-0 items-center pt-[28.62px] mt-[35px]">
+      <div className="flex justify-center flex-shrink-0 items-center pt-[25px] mt-[35px]">
         <div className="flex-shrink-0 bg-cover w-[365px] h-[204px] relative md:w-[826px] md:h-[503px]">
           <img
             src={smallTimerImage}
@@ -56,6 +57,13 @@ const Hero = () => {
             <img
               src={frame}
               className="w-[72.897px] h-[157.293px] absolute right-[3px] top-[3px]"
+              alt=""
+            />
+          </div>
+          <div className="BigIphone hidden md:block absolute right-[3px] top-[18%]">
+            <img
+              src={BigIphoneWall}
+              className="w-[179px] h-[386px] absolute right-[9px] top-[8px]"
               alt=""
             />
           </div>
