@@ -17,3 +17,8 @@
   right: 10px;
   top: 15%;
 }
+.BigIphone {
+  background-image: url(../../../assets/BigIphone.svg);
+  width: 196px;
+  height: 401px;
+}
