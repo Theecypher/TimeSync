@@ -44,11 +44,11 @@ function App() {
           path="/signup"
           element={<SignUp otpTime={otpTime} setOtpTime={setOtpTime} />}
         />
-        <Route path="/" element={<SignIn />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/resetPassword" element={<ResetPassword />} />
         <Route path="/resetCode" element={<ResetCode />} />
-        <Route path="/landingpage" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/createPassword" element={<ResetComponentPassword />} />
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
