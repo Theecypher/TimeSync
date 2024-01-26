@@ -1,30 +1,31 @@
-/* .Timer-modal {
-    padding: 10px !important;
-} */
-
-/* input[type = "date"]::-webkit-calendar-picker-indicator {
-    display: none;
+.backdrop {
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.25);
 }
 
-input[type="date"]::-moz-calendar-picker-indicator {
-    display: none;
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-image: url("../../../assets/chevron-down.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background-image: url("../../../assets/chevron-down.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px;
 }
 
-input[type="date"]::-ms-clear {
-    display: none;
-    width: 0;
-    height: 0;
-} */
-
-input[type = "date"]::-webkit-calendar-picker-indicator {
-    background-image: url("../../../assets/chevron-down.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 15px;
+input[type="time"]::placeholder {
+  content: "finishing Time";
 }
 
-input[type = "date"]::before {
-    position: absolute;
-    left: 6px;
-    content: url("../../../assets/calendar.svg");
+.borderstyle {
+  border: 1px solid var(--grey-8, #e9ebf8);
+}
+
+input[type="date"]::before {
+  position: absolute;
+  left: 45px;
+  content: url("../../../assets/calendar.svg");
 }
