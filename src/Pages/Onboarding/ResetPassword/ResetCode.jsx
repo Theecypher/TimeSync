@@ -100,7 +100,6 @@ const ResetCode = () => {
           </p>
           <button
             type="button"
-            // onClick={handleResendOtp}
             className="pl-1 text-main-blue font-[400] text-[14px] underline underline-offset-1 leading-[23.6px]"
           >
             {" "}

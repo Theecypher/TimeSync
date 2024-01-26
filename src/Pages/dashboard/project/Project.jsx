@@ -41,12 +41,12 @@ const Project = () => {
       team: "Team X",
     },
   ]);
-  
+
   return (
     <div className="w-full  min-h-[calc(100vh-88px)] flex flex-col px-[20px] ">
       <div className="w-full bg-white sticky top-0 z-30 h-[88px] border-b-[1px] border-[#F5F5F5] px-[24px] flex  items-center justify-end ">
-       <ProjectTopNav openModal={openModal} setOpenModal={setOpenModal}/>
-       </div>
+        <ProjectTopNav openModal={openModal} setOpenModal={setOpenModal} />
+      </div>
       {/* <ProjectModal openModal={openModal} closeModal={closeModal} /> */}
       <h1 className="mt-[32px] font-[500] text-[48px] leading-[48px] text-[#3D3D3D]">
         Project
@@ -96,13 +96,16 @@ const Project = () => {
           </div>
         ) : (
           <div className="w-fit flex flex-col items-center">
-            <img src={emptyState} alt='' className="h-[150px] w-[150px]" />
+            <img src={emptyState} alt="" className="h-[150px] w-[150px]" />
             <h4 className="text-black text-center font-[600] text-[16px] leading-[19.2px] tracking-[-0.32px]">
               Create new project
             </h4>
-            <Button 
-              onClick={()=>setOpenModal(true)} 
-              className="w-fit self-center mt-[20px]">Create</Button>
+            <Button
+              onClick={() => setOpenModal(true)}
+              className="w-fit self-center mt-[20px]"
+            >
+              Create
+            </Button>
           </div>
         )}
       </div>

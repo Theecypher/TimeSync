@@ -6,11 +6,11 @@ import "./Feedback.css";
 
 const FeedbackCard = () => {
   return (
-    <section className="flex flex-col font-montserrat mt-[40px] items-start gap-[20px] md:flex-row md:inline-flex md:gap-[32px] md:flex-shrink-0 md:h-[354px]">
+    <section className="flex flex-col font-montserrat mt-[40px] items-start gap-[20px] md:flex-row md:inline-flex md:gap-[32px] md:flex-shrink-0 md:h-[354px] md:mt-[100px]">
       {data.map((card, index) => (
         <article
           key={index}
-          className="box-shadow w-[350px] flex rotate-[-0.237deg] p-[20.661px] flex-col items-center gap-[10.331px] rounded-[3.444px] border-[0.861px] border-[#E9EBF8] bg-[#FFF] md:w-[549px] md:h-[354px] md:p-[32.085px] md:items-start md:gap-[16.064px] md:rounded-[5.347px] md:border-[1.337px] md:border-[#e9ebf8]"
+          className="box-shadow w-[350px] flex rotate-[-0.237deg] p-[20.661px] flex-col items-center gap-[10.331px] rounded-[3.444px] border-[0.861px] border-[#E9EBF8] bg-[#F5F5F5] md:w-[500px] md:h-[360px] md:p-[32.085px] md:items-start md:gap-[16.064px] md:rounded-[5.347px] md:border-[1.337px] md:border-[#e9ebf8]"
         >
           <div className="flex items-start self-stretch justify-between">
             <img

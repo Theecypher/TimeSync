@@ -34,7 +34,7 @@ const ForgotPassword = ({ email, loading, handleForgotPassword, handleChange }) 
         {/* Reset password */}
         {loading ? (
           <div className="flex justify-center space-x-2">
-            <span>Signing up</span>
+            <span>Reseting Password</span>
             <Oval
               height={20}
               width={20}
