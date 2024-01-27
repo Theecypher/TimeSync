@@ -74,7 +74,7 @@ const SignUp = ({otpTime, setOtpTime}) => {
       console.log(signupDetails);
       setLoading(true);
       axios
-        .post(`${baseUrl}/auths/sign-up`, {
+        .post(`${baseUrl}/auth/sign-up`, {
           name: signupDetails.name,
           email: signupDetails.email,
           password: signupDetails.password,
