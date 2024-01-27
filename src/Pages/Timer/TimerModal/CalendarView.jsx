@@ -5,7 +5,7 @@ import calendar from "../../../assets/calendar.svg"
 import switchOn from "../../../assets/switch-on.svg"
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md"
 
-const CalendarView = () => {
+const CalendarView = ({timers}) => {
   const [activeView, setActiveView] = useState("calendar");
   const [tasks, setTasks] = useState(tasksData);
   const [days, setDays] = useState([

@@ -14,8 +14,8 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const navigate = useNavigate();
-  const {baseUrl} = useStore();
-  console.log(baseUrl)
+  const {baseUrl, updateToken, token} = useStore();
+  // console.log(token)
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -47,13 +47,16 @@ const SignIn = () => {
       setLoading(true);
 
       axios
-        .post(`${baseUrl}/auths/login`, {
+        .post(`${baseUrl}/auth/login`, {
           email: email,
           password: password,
         })
        
         .then((response) => {
           console.log(response);
+          let token = response?.data?.data?.token
+          localStorage.setItem('token', token)
+          updateToken(token)
           setSubmitStatus('success');
           toast.success("Sign up successful!");
           setLoading(false);

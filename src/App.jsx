@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import SignIn from "./Pages/Onboarding/signIn/SignIn";
 import SignUp from "./Pages/Onboarding/sign-up/SignUp";
 import DashboardLayout from "./Pages/dashboard/layout/DashboardLayout";
-import Dashboard from "./Pages/dashboard/Dashboard";
+import Dashboard from "./Pages/dashboard/dashboard/Dashboard";
 import { Toaster } from "sonner";
 import ShowTimerModal from "./Pages/Timer/TimerModal/testTimer";
 import ResetPassword from "./Pages/Onboarding/ResetPassword/ResetPassword";
