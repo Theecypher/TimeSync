@@ -9,18 +9,23 @@ const ShowNextFeedback = () => {
   };
 
   return (
-    <div className="hidden absolute md:flex md:right-[2%] w-[35px] text-[#b6d8ff]">
+    <div className="hidden absolute md:inline-flex w-[35px] top-[25%] md:right-[50%] lg:right-[32%] text-[#b6d8ff] gap-4">
       <button
         onClick={ToggleActive}
-        className={
-          active
-            ? "bg-[#034592] border py-[1px] px-[1px] text-[#fff]"
-            : "bg-none"
-        }
+        className="flex w-[97px] border-[#bebebf] border py-[3px] px-[15px] justify-center text-[#bebebf] items-center gap-[10px] rounded-[8px]"
+        // { active ?
+        // : "bg-none w-[49px]"}
       >
-        <AiOutlineArrowLeft />
+        <AiOutlineArrowLeft className="flex-shrink-0 h-[20.417px] w-[20.417px] stroke-[2px] stroke-[#bebebf]" />
       </button>
-      <AiOutlineArrowRight />
+      <button
+        onClick={ToggleActive}
+        className="flex w-[97px] border-[#034592] border py-[3px] px-[15px] text-[#034592] justify-center items-center gap-[10px] rounded-[8px]"
+        // { active ?
+        // : "bg-none w-[49px]"}
+      >
+        <AiOutlineArrowRight className="flex-shrink-0 h-[20.417px] w-[20.417px] stroke-[2px] stroke-[#034592]" />
+      </button>
     </div>
   );
 };

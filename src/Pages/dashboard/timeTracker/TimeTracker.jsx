@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import calendar from "../../../assets/calendar.svg";
+import switchOn from "../../../assets/switch-on.svg";
 import { tasksData } from "../taskData";
 import useStore from "../../../zustand-store/store";
 import CalendarView from "../../Timer/TimerModal/CalendarView";
@@ -7,6 +9,7 @@ import { PlusIcon } from "@radix-ui/react-icons";
 import TimerModal from "../../Timer/TimerModal/TimerModal";
 import axios from "axios";
 import TimerView from "./components/TimerView";
+import ProjectTopNav from "../../../../TopNav";
 
 const TimeTracker = () => {
   const [activeView, setActiveView] = useState("timer");

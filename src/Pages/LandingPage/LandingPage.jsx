@@ -13,6 +13,7 @@ const LandingPage = () => {
       <About />
       <Why />
       <Features />
+      <CustomerFeedback />
       <HowItWorks />
       <Footer />
     </section>

@@ -22,24 +22,30 @@ const Navbar = () => {
         </div>
 
         <ul className="hidden md:flex justify-center items-center md:gap-[15px] gap-[24px]">
-          <li className="flex flex-col justify-center items-start md:gap[5px] gap-[10px] font-[600]">
-            Home
-          </li>
-          <li className="flex flex-col justify-center items-start md:gap[5px] gap-[10px] font-[600]">
+          <li className="flex flex-col justify-center items-start md:gap[5px] gap-[10px]">
             About
           </li>
-          <li className="flex flex-col justify-center items-start md:gap[5px] gap-[10px] font-[600]">
+          <li className="flex flex-col justify-center items-start md:gap[5px] gap-[10px]">
+            Blogs
+          </li>
+          <li className="flex flex-col justify-center items-start md:gap[5px] gap-[10px]">
             How it works
           </li>
         </ul>
 
         <div className="flex items-center justify-center gap-[16px]">
-          <button className="border-[1px] border-[#F77A4A] hidden md:block font-[500] text-[16px] py-[10px] text-[#E1E1E1] text-center px-[16px] rounded-[30px] w-[112px] h-[48px]">
+          <Link
+            to="/signin"
+            className="border-[1px] border-[#F77A4A] text-[#f77a4a] hidden md:block font-[500] text-[16px] py-[10px] text-center px-[16px] rounded-[30px] w-[112px] h-[48px]"
+          >
             Log in
-          </button>
-          <button className="bg-[#034592] md:mx-1 mx-3 font-[500] hidden md:block text-[16px] py-[10px] text-white text-center px-[16px] rounded-[30px] w-[112px] h-[48px]">
-            Sign in
-          </button>
+          </Link>
+          <Link
+            to="/signup"
+            className="bg-[#034592] md:mx-1 mx-3 font-[500] hidden md:block text-[16px] py-[10px] text-white text-center px-[16px] rounded-[30px] w-[112px] h-[48px]"
+          >
+            Sign up
+          </Link>
 
           {!toggle ? (
             <Button className="block" />
@@ -59,7 +65,7 @@ const Navbar = () => {
         <div
           className={
             !toggle
-              ? "fixed left-0 top-[70px] w-full z-10 border-r border-r-gray-900 ease-in-out duration-500 bg-white"
+              ? "fixed left-0 top-[70px] z-30 w-full border-r border-r-gray-900 ease-in-out duration-500 bg-white md:hidden"
               : "fixed left-[100%]"
           }
         >
@@ -77,7 +83,7 @@ const Navbar = () => {
               <Link>How it works</Link>
             </li>
             <li className="p-4 border-b border-gray-300">
-              <Link>Log in</Link>
+              <Link to="/signin">Log in</Link>
             </li>
           </ul>
         </div>

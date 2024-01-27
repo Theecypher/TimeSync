@@ -11,8 +11,8 @@ const Footer = () => {
         </section>
       </section>
 
-      <section className="hidden md:flex background pt-[40px] flex-col items-center gap-[40px] justify-end">
-        <section className="flex self-start ml-[113px] justify-between items-start md:gap-[10px] lg:gap-[60px]">
+      <section className="background mt-[125px] hidden md:flex background pt-[30px] flex-col items-center gap-[40px] justify-end">
+        <section className="flex self-start ml-[90px] justify-between gap-[30px] lg:gap-[100px]">
           <FooterContent />
         </section>
         <Copyright />
