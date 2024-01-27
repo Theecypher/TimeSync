@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import SignIn from "./Pages/Onboarding/signIn/SignIn";
 import SignUp from "./Pages/Onboarding/sign-up/SignUp";
 import DashboardLayout from "./Pages/dashboard/layout/DashboardLayout";
@@ -18,9 +18,19 @@ import ResetCode from "./Pages/Onboarding/ResetPassword/ResetCode";
 import TimeTracker from "./Pages/dashboard/timeTracker/TimeTracker";
 import Project from "./Pages/dashboard/project/Project";
 import LandingPage from "./Pages/LandingPage/LandingPage";
+import useStore from "./zustand-store/store";
 
 function App() {
   const [otpTime, setOtpTime] = useState(localStorage.getItem("otp") || 300);
+  const location = useLocation()
+  const router = useNavigate()
+  const {token} = useStore()
+  console.log(location.pathname)
+  useEffect(()=>{
+    if(!token && location.pathname.includes('dashboard')){
+      router('/signin')
+    }
+  },[])
 
   useEffect(() => {
     const timer = setInterval(() => {
