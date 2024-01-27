@@ -5,7 +5,7 @@ import RightArrow from "./Assests/rightarrow.svg";
 import LeftArrow from "./Assests/leftarrow.svg";
 import dateCalendar from "./Assests/date-calendar.svg";
 
-const CalendarView = () => {
+const CalendarView = ({timers}) => {
   const [activeView, setActiveView] = useState("calendar");
   const [tasks, setTasks] = useState(tasksData);
   const [days, setDays] = useState([

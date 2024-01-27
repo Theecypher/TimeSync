@@ -4,6 +4,9 @@ import { AiOutlineClose } from "react-icons/ai";
 import "./Timer.css";
 import { useState } from "react";
 import useReminderStore from "../../../zustand-store/reminderStore";
+import axios from "axios";
+import useStore from "../../../zustand-store/store";
+import { toast } from "sonner";
 
 const dropIn = {
   hidden: {
@@ -26,30 +29,99 @@ const dropIn = {
   },
 };
 
-const TimerModal = ({ handleClose }) => {
-  const [value, setValue] = useState({
-    Tname: "",
-    start: "",
-    finish: "",
-    schedule: "",
-  });
+const TimerModal = ({ handleClose, getTimers }) => {
+    const [value, setValue] = useState({
+        Tname: "",
+        start: "",
+        finish: "",
+        schedule: "",
+    });
+    const [isLoading, setIsLoading] = useState(false)
+    const [errors, setErrors] = useState(null)
+    const {baseUrl, token} = useStore()
+    const headers = {
+        Authorization: `Bearer ${token}`
+    }
 
-  const handleChange = (e) => {
-    setValue((state) => ({
-      ...state,
-      [e.target.name]: e.target.value,
-    }));
-    console.log(e.target.value);
-  };
+    const handleChange = (e) => {
+        setValue((state) => ({ 
+            ...state,
+            
+            [e.target.name]: e.target.value
+        }))
+        // console.log(e.target.value);
+    }
+    const convertTime=(time, scheduleDate)=>{
+        const date = new Date(scheduleDate);
+        const combinedDateTime = new Date(date.toDateString() + " " + time);
+        const isoString = combinedDateTime.toISOString();
+        console.log(isoString);
+        return isoString
+    } 
+    const updateTime=()=>{
+        const scheduleDate = new Date(value.schedule)
+        const startTime = convertTime(value.start, scheduleDate )
+        const endTime = convertTime(value.finish, scheduleDate);
+        const timerDetails = {
+            timerName: value.Tname,
+            start: startTime,
+            stop: endTime,
+            calenderSchedule: scheduleDate
+        }
+        return timerDetails
+    }
 
-  const createReminders = useReminderStore((state) => state.createReminders);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(value);
-    createReminders(value);
-    setValue(" ");
-  };
+    const createReminders = useReminderStore((state) => state.createReminders);
+    const validateInputs=()=>{
+        let error={}
+        if(!value.Tname){
+            error.name ="Timer name cannot be empty"
+        }
+        if (!value.finish) {
+          error.finish = "Timer Stop time cannot be empty";
+        }
+         if (!value.start) {
+           error.start = "Timer Start time cannot be empty";
+         }
+          if (!value.schedule) {
+            error.schedule = "Timer Schedule date cannot be empty";
+          }
+          return error
+    }
+    const handleSetTimer = (e) => {
+        e.preventDefault();
+        setIsLoading(true)
+        const validate = validateInputs()
+        if(Object.keys(validate).length ==0){
+        // createReminders(value);
+        // setValue(" ");
+        const timerDetails = updateTime()
+        console.log(timerDetails)
+        axios.post(`${baseUrl}/timers`, timerDetails, {headers})
+        .then((response)=>{
+            console.log(response)
+            if ((response?.data?.status == "success")) {
+                setIsLoading(false);
+            toast.success(response?.data?.message)
+            getTimers()
+        }
+        })
+        .catch((error)=>{
+            console.log(error)
+            if(error.response?.data?.err.includes('duplicate key error')){
+                toast.error("Error! Duplicate Timer")
+            }
+            else{
+                toast.error(error.response?.data?.err);
+            }
+            setIsLoading(false)
+        })}
+        else{
+            setErrors(validate)
+            toast.error("Error! Please check the inputs")
+            setIsLoading(false)
+        }
+    }
 
   return (
     <TimerBackdrop onclick={handleClose}>
@@ -62,7 +134,7 @@ const TimerModal = ({ handleClose }) => {
         initial="hidden"
         animate="visible"
         exit="exit"
-        onSubmit={handleSubmit}
+        onSubmit={handleSetTimer}
       >
         <div className="flex flex-col items-center gap-[40px]">
           <div className="flex justify-between w-[480px] items-center font-montserrat">
@@ -101,7 +173,7 @@ const TimerModal = ({ handleClose }) => {
                 Start
               </label>
               <input
-                type="text"
+                type="time"
                 className="flex w-[480px] pt-[16px] border borderstyle pr-[375px] pb-[19px] pl-[16px] items-center rounded-[16px]"
                 placeholder="Starting Time"
                 value={value.start}
@@ -145,7 +217,7 @@ const TimerModal = ({ handleClose }) => {
               type="submit"
               className="flex m-auto justify-center items-center text-[#FFFFFF] bg-[#034592] font-[500] text-[13.714px] leading-[20.571px] rounded-2xl py-[5.7px] px-[38.095px] gap-[3.81px]"
             >
-              Create{" "}
+             {isLoading ? "Creating...": "Create"}
             </button>
           </div>
         </div>
