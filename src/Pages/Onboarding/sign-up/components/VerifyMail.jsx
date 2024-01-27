@@ -79,7 +79,7 @@ const VerifyMail = ({otpTime, setOtpTime}) => {
   };
   const handleResendOtp = () => {
     axios
-      .post(`${baseUrl}/auths/resend-otp`, "", { headers })
+      .post(`${baseUrl}/auth/resend-otp`, "", { headers })
       .then((response) => {
         console.log(response);
         toast.success(response?.data?.message || response?.data?.data?.message);
