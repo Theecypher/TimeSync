@@ -1,26 +1,38 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import SideMenu from "./SideMenu";
 import TopNav from "./TopNav";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useStore from "../../../zustand-store/store";
 import ProjectModal from "../project/components/ProjectModal";
+import TopBar from "./TopBar";
+import LandingPage from "../../LandingPage/LandingPage";
+import SideBar from "./SideBar";
 
 const DashboardLayout = () => {
-  //  const {token} = useStore()
-  // const navigateTo = useNavigate()
-  // useEffect(()=>{
-  //   if(!token || token== '' || token== null){
-  //     navigateTo('/')
-  //   }
-  // },[])
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
+  const [openMenu, setopenMenu] = useState(false);
+  const [header, setHeader] = useState('Dashboard')
+
   return (
-    <div className="w-full relative flex flex-row ">
-      <SideMenu /> 
-      <div className="w-full">
-        <ProjectModal openModal={openModal} closeModal={()=>setOpenModal(false)}/>
-        {/* <TopNav setOpenModal={setOpenModal}/> */}
-        <Outlet  context={[openModal, setOpenModal]}/>
+    <div className="w-full relative flex lg:flex-ro flex-col transition-all duration-500 overflow-hidden h-screen">
+      <div>
+        <TopBar openMenu={openMenu} setopenMenu={setopenMenu} header={header}/>
+      </div>
+      <div className="w-full z- flex h-full">
+        <SideBar openMenu={openMenu} />
+        {openMenu && (
+          <div
+            onClick={() => setopenMenu(false)}
+            className="bg-transparent w-full fixed z-[99] top-0 bottom-0 left-0"
+          ></div>
+        )}
+        <div className="w-full shrink max-lg:flex-1 pl-0  mx-lg:pl-[70px] lg:pl[230px] h-full overflow-scroll">
+          <ProjectModal
+            openModal={openModal}
+            closeModal={() => setOpenModal(false)}
+          />
+          <Outlet context={[openModal, setOpenModal, setHeader, header]} />
+        </div>
       </div>
     </div>
   );

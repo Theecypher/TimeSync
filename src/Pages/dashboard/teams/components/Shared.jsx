@@ -8,6 +8,7 @@ import picture from "./assets/picture.svg";
 import speaker from "./assets/speaker.svg";
 import share from "./assets/share.svg";
 import video from "./assets/video.svg";
+import LeftMenu from "../../layout/TopBar";
 
 const Shared = () => {
   const sharedLists = [
@@ -120,12 +121,12 @@ const Shared = () => {
           sharedList.map((list, index) => (
             <div
               key={index}
-              className="p-[20px] bg-white flex justify-between text-[#1E1E1E]"
+              className="p-[20px] bg-white font-montserrat flex max-lg:gap-x-[25px] justify-between text-[#1E1E1E]"
             >
-              <div className="flex gap-x-[40px]">
+              <div className="flex gap-x-[40px] max-lg:gap-y-[8px]">
                 <img src={list.icon} className="" />
                 <div className="flex flex-col gap-y-[12px]">
-                  <p className=" text-[16px] font-[500] leading-[16px] tracking-[-0.64px]">
+                  <p className="text-[#1E1E1E] text-[12px] lg:text-[16px] font-[500] leading-[12px] lg:leading-[16px] tracking-[-0.64px] max-lg:pr-[25px] max-lg:h-[24px] overflow-hidden text-ellipsis ">
                     {list.title}
                   </p>
                   <div className="flex gap-x-[12px] font-[400] text-[14px] leading-[14px] tracking-[-0.56px]">
@@ -135,7 +136,7 @@ const Shared = () => {
                 </div>
               </div>
               {/* Share & Download */}
-              <div className="flex gap-x-[46px] text-[#1E1E1E]">
+              <div className="flex gap-x-[20px] lg:gap-x-[46px] text-[#1E1E1E]">
                 <button
                   disabled={!list.download}
                   className="disabled:opacity-30 flex flex-col gap-y-[8px] text-[10px] font-[400px] leading-[10px] tracking-[-0.4px] justify-center items-center"
@@ -147,9 +148,7 @@ const Shared = () => {
                   )}
                   <span>Download</span>
                 </button>
-                <button
-                  className="flex flex-col gap-y-[8px] text-[10px] font-[400px] leading-[10px] tracking-[-0.4px] justify-center items-center"
-                >
+                <button className="flex flex-col gap-y-[8px] text-[10px] font-[400px] leading-[10px] tracking-[-0.4px] justify-center items-center">
                   <img src={share} className="" />
                   <span>Share</span>
                 </button>

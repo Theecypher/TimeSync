@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import VerifyMail from "./components/VerifyMail";
 import SignUpForm from "./components/SignUpForm";
 
-const SignUp = ({otpTime, setOtpTime}) => {
+const SignUp = ({ otpTime, setOtpTime }) => {
   const [signupDetails, setSignupDetails] = useState({
     name: "",
     email: "",
@@ -17,22 +17,17 @@ const SignUp = ({otpTime, setOtpTime}) => {
   const [psswdError, setPsswdError] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const { baseUrl, updateToken } = useStore();
-  const [hasSignedUp, setHasSignedUp] = useState(false)
+  const [hasSignedUp, setHasSignedUp] = useState(false);
   const navigateTo = useNavigate();
-  // console.log(hasSignedUp)
 
-  // useEffect(()=>{
-  // console.log(psswdError )
-  // },[psswdError])
   const handleOnchange = (e) => {
     const { name, value } = e.target;
     setSignupDetails((prevVals) => ({ ...prevVals, [name]: value }));
-    setError((prevVals)=>({...prevVals, [name]: ''}))
-    if(e.target.name == 'password'){
-    let password = e.target.value
-      const passwdValidate=validatePassword(password)
-      setPsswdError(passwdValidate)
-      // console.log(passwdValidate)
+    setError((prevVals) => ({ ...prevVals, [name]: "" }));
+    if (e.target.name == "password") {
+      let password = e.target.value;
+      const passwdValidate = validatePassword(password);
+      setPsswdError(passwdValidate);
     }
   };
   const validateSignup = () => {
@@ -63,29 +58,36 @@ const SignUp = ({otpTime, setOtpTime}) => {
     }
     return errors;
   };
-  
+
   const handleSignUp = (e) => {
     e.preventDefault();
     const validatePasswd = validatePassword(signupDetails.password);
     console.log(validatePasswd);
     const validated = validateSignup();
     console.log(validated);
-    if (Object.keys(validated).length === 0 && Object.keys(validatePasswd).length===0) {
+    if (
+      Object.keys(validated).length === 0 &&
+      Object.keys(validatePasswd).length === 0
+    ) {
       console.log(signupDetails);
       setLoading(true);
       axios
-        .post(`${baseUrl}/auths/sign-up`, {
+        .post(`${baseUrl}/auth/sign-up`, {
           name: signupDetails.name,
           email: signupDetails.email,
           password: signupDetails.password,
         })
         .then((response) => {
           console.log(response);
-          let token = response.data.data.token;
-          localStorage.setItem("token", token);
-          updateToken(token)
-          setHasSignedUp(true)
-          toast.success("Sign up successful!");
+          let token = response?.data?.data?.token;
+          if (token) {
+            localStorage.setItem("token", token);
+            updateToken(token);
+            setHasSignedUp(true);
+            toast.success("Sign up successful!");
+          } else{
+            toast.warning(response?.data?.message)
+          }
           setLoading(false);
         })
         .catch((error) => {
@@ -100,14 +102,21 @@ const SignUp = ({otpTime, setOtpTime}) => {
       toast.warning("Please check all input fields");
     }
   };
-  
+
   return (
     <div className="w-full lg:bg-[#B6D8FF] font-montserrat flex px-[16px] lg:px-0 lg:flex-col lg:items-center lg:justify-center lg:backdrop-blur-[30px] lg:bg-[rgba(255, 255, 255, 0.2)] h-[100vh]">
-      {!hasSignedUp ? 
-      <SignUpForm handleSignUp={handleSignUp} signupDetails={signupDetails} handleOnchange={handleOnchange} error={error} isLoading={isLoading} psswdError={psswdError} />
-      :
-      <VerifyMail otpTime={otpTime} setOtpTime={setOtpTime}/>
-}
+      {!hasSignedUp ? (
+        <SignUpForm
+          handleSignUp={handleSignUp}
+          signupDetails={signupDetails}
+          handleOnchange={handleOnchange}
+          error={error}
+          isLoading={isLoading}
+          psswdError={psswdError}
+        />
+      ) : (
+        <VerifyMail otpTime={otpTime} setOtpTime={setOtpTime} />
+      )}
       {/* <Link to="/dashboard">Dashboard</Link> */}
     </div>
   );

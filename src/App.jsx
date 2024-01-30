@@ -25,9 +25,8 @@ function App() {
   const location = useLocation()
   const router = useNavigate()
   const {token} = useStore()
-  console.log(location.pathname)
   useEffect(()=>{
-    if(!token && location.pathname.includes('dashboard')){
+    if(token && location.pathname.includes('dashboard')){
       router('/signin')
     }
   },[])
