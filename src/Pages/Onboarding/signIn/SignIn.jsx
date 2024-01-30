@@ -60,7 +60,7 @@ const SignIn = () => {
           localStorage.setItem('token', token)
           updateToken(token)
           setSubmitStatus('success');
-          toast.success("Sign up successful!");
+          toast.success("Sign in successful!");
           setLoading(false);
           navigate('/dashboard');
         })
@@ -118,6 +118,7 @@ const SignIn = () => {
             required
           />
           {passwordError && <p className='text-red-500 text-sm'>required</p>}
+          <Link to='/resetPassword' className='text-primary-blue text-[14px] font-[300] leading-[23.6px]'>Forgot Password</Link>
         </form>
         <div className='flex flex-col items-center leading-tight'>
           <button

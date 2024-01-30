@@ -110,10 +110,10 @@ const TimerModal = ({ handleClose, getTimers }) => {
         })
         .catch((error) => {
           console.log(error);
-          if (error.response?.data?.err.includes("duplicate key error")) {
+          if (error.response?.data?.err?.includes("duplicate key error")) {
             toast.error("Error! Duplicate Timer");
           } else {
-            toast.error(error.response?.data?.err);
+            toast.error(error.response?.data?.err || error?.response?.data?.message);
           }
           setIsLoading(false);
         });
