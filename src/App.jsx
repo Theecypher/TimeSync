@@ -19,14 +19,17 @@ import useStore from "./zustand-store/store";
 
 function App() {
   const [otpTime, setOtpTime] = useState(localStorage.getItem("otp") || 300);
-  const location = useLocation();
-  const router = useNavigate();
-  const { token } = useStore();
-  useEffect(() => {
-    if (token && location.pathname.includes("dashboard")) {
-      router("/signin");
-    }
-  }, []);
+  const location = useLocation()
+  const router = useNavigate()
+  const {token} = useStore()
+  // useEffect(()=>{
+  //   if(!token && location.pathname.includes('dashboard')){
+  //     router('/signin')
+  //   }
+  //   if(token && location.pathname.includes('signin') || token && location.pathname.includes('signup')){
+  //     router('/dashboard')
+  //   }
+  // },[])
 
   useEffect(() => {
     const timer = setInterval(() => {

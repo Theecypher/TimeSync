@@ -5,6 +5,7 @@ import { Oval } from "react-loader-spinner";
 import useStore from '../../../zustand-store/store';
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import VerifyMail from '../sign-up/components/VerifyMail';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -13,6 +14,7 @@ const SignIn = () => {
   const [passwordError, setPasswordError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [notVerified, setNotVerifed] = useState(false)
   const navigate = useNavigate();
   const {baseUrl, updateToken, token} = useStore();
   // console.log(token)
@@ -64,6 +66,9 @@ const SignIn = () => {
         })
         .catch((err) => {
           console.log(err.response);
+          if (err?.response?.data?.message.includes("An otp has been")) {
+            setNotVerifed(true)
+          }
           toast.error(
             err?.response?.data?.err || err?.response?.data?.message || 'Error logging in'
           );
@@ -77,7 +82,10 @@ const SignIn = () => {
   };
 
   return (
-    <div className='flex flex-col justify-center h-screen items-center sm:bg-blue-200'>
+    <div className='flex flex-col justify-center h-screen items-center sm:bg-blue-200'>{
+      notVerified ? 
+      <VerifyMail/> 
+      :
       <div className='w-[390px] h-[844px] px-3 flex flex-col justify-between items-center bg-white sm:w-[451px] sm:h-[525px] sm:rounded-lg sm:border-2 sm:shadow-lg sm:shadow-grey-200/60'>
         <div className='flex flex-col items-center leading-tight'>
           <h2 className='font-montserrat font-bold py-10 text-[#1E1E1E] text-[20px] lg:text-[24px] '>Sign in</h2>
@@ -140,6 +148,7 @@ const SignIn = () => {
           </p>
         </div>
       </div>
+      }
     </div>
   );
 };

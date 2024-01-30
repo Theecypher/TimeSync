@@ -72,41 +72,41 @@ const TimerModal = ({ handleClose, getTimers }) => {
     return timerDetails;
   };
 
-  const createReminders = useReminderStore((state) => state.createReminders);
-  const validateInputs = () => {
-    let error = {};
-    if (!value.Tname) {
-      error.name = "Timer name cannot be empty";
-    }
-    if (!value.finish) {
-      error.finish = "Timer Stop time cannot be empty";
-    }
-    if (!value.start) {
-      error.start = "Timer Start time cannot be empty";
-    }
-    if (!value.schedule) {
-      error.schedule = "Timer Schedule date cannot be empty";
-    }
-    return error;
-  };
-  const handleSetTimer = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    const validate = validateInputs();
-    if (Object.keys(validate).length == 0) {
-      // createReminders(value);
-      // setValue(" ");
-      const timerDetails = updateTime();
-      console.log(timerDetails);
-      axios
-        .post(`${baseUrl}/timers`, timerDetails, { headers })
-        .then((response) => {
-          console.log(response);
-          if (response?.data?.status == "success") {
-            setIsLoading(false);
-            toast.success(response?.data?.message);
-            getTimers();
+    const createReminders = useReminderStore((state) => state.createReminders);
+    const validateInputs=()=>{
+        let error={}
+        if(!value.Tname){
+            error.name ="Timer name cannot be empty"
+        }
+        if (!value.finish) {
+          error.finish = "Timer Stop time cannot be empty";
+        }
+         if (!value.start) {
+           error.start = "Timer Start time cannot be empty";
+         }
+          if (!value.schedule) {
+            error.schedule = "Timer Schedule date cannot be empty";
           }
+          return error
+    }
+    const handleSetTimer = (e) => {
+        e.preventDefault();
+        setIsLoading(true)
+        const validate = validateInputs()
+        console.log(validate)
+        if(Object.keys(validate).length ==0){
+        // createReminders(value);
+        // setValue(" ");
+        const timerDetails = updateTime()
+        console.log(timerDetails)
+        axios.post(`${baseUrl}/timers`, timerDetails, {headers})
+        .then((response)=>{
+            console.log(response)
+            if ((response?.data?.status == "success")) {
+                setIsLoading(false);
+            toast.success(response?.data?.message)
+            getTimers()
+        }
         })
         .catch((error) => {
           console.log(error);
@@ -176,7 +176,7 @@ const TimerModal = ({ handleClose, getTimers }) => {
                 Start
               </label>
               <input
-                type="text"
+                type="time"
                 className="flex w-full py-[14px] border borderstyle pl-[16px] items-center rounded-[16px]"
                 placeholder="Starting Time"
                 value={value.start}
@@ -197,7 +197,7 @@ const TimerModal = ({ handleClose, getTimers }) => {
                 className="Timer-modal borderstyle flex w-full py-[14px] px-[15px] justify-center items-center rounded-[16px] border"
                 value={value.finish}
                 placeholder="Finishing Time"
-                name="schedule"
+                name="finish"
                 onChange={handleChange}
               />
             </div>
