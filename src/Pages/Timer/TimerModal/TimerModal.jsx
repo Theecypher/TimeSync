@@ -92,6 +92,7 @@ const TimerModal = ({ handleClose, getTimers }) => {
         e.preventDefault();
         setIsLoading(true)
         const validate = validateInputs()
+        console.log(validate)
         if(Object.keys(validate).length ==0){
         // createReminders(value);
         // setValue(" ");
@@ -192,9 +193,9 @@ const TimerModal = ({ handleClose, getTimers }) => {
               <input
                 type="time"
                 className="Timer-modal borderstyle flex w-[480px] p-[16px] justify-center items-center rounded-[16px] border"
-                value={value.schedule}
+                value={value.finish}
                 placeholder="Timer name"
-                name="schedule"
+                name="finish"
                 onChange={handleChange}
               />
             </div>
