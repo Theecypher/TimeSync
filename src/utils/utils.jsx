@@ -12,3 +12,9 @@ export const getAmPm = (timer) => {
   const ampm = hours >= 12 ? "pm" : "am";
   return ampm;
 };
+
+export function formatDate(dateString) {
+  const options = { day: "numeric", month: "short", year: "numeric" };
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", options);
+}
