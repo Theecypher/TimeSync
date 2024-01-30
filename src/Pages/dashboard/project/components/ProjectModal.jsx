@@ -30,6 +30,7 @@ const ProjectModal = ({ openModal, closeModal, setValue}) => {
             color="#1E1E1E"
             size={34}
             className="bg-slate-100 p-2"
+            onClick={closeModal}
           />
         </div>
         <form className="w-full mt-[40px] flex flex-col gap-y-[20px]">

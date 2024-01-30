@@ -3,12 +3,22 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import Logo from "../../../assets/Logo.svg";
 import Button from "./Button";
+import useStore from "../../../zustand-store/store";
+import { toast } from "sonner";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(true);
 
   const handleToggle = (e) => {
     setToggle((prev) => !prev);
+  };
+  const { token, updateToken } = useStore();
+  const handleSignOut = () => {
+    if (token) {
+      localStorage.removeItem("token");
+      updateToken(null);
+      toast.success("Logged out successfully!");
+    }
   };
 
   return (
@@ -31,21 +41,27 @@ const Navbar = () => {
           <li className="flex flex-col justify-center items-start md:gap[5px] gap-[10px]">
             How it works
           </li>
+          <li className="flex flex-col justify-center items-start md:gap[5px] gap-[10px]">
+            <Link to={"/dashboard"}>Dashboard</Link>
+          </li>
         </ul>
 
         <div className="flex items-center justify-center gap-[16px]">
           <Link
+            onClick={handleSignOut}
             to="/signin"
             className="border-[1px] border-[#F77A4A] text-[#f77a4a] hidden md:block font-[500] text-[16px] py-[10px] text-center px-[16px] rounded-[30px] w-[112px] h-[48px]"
           >
-            Log in
+            {token ? "Log out" : "Log in"}
           </Link>
-          <Link
-            to="/signup"
-            className="bg-[#034592] md:mx-1 mx-3 font-[500] hidden md:block text-[16px] py-[10px] text-white text-center px-[16px] rounded-[30px] w-[112px] h-[48px]"
-          >
-            Sign up
-          </Link>
+          {!token && (
+            <Link
+              to="/signup"
+              className="bg-[#034592] md:mx-1 mx-3 font-[500] hidden md:block text-[16px] py-[10px] text-white text-center px-[16px] rounded-[30px] w-[112px] h-[48px]"
+            >
+              Sign up
+            </Link>
+          )}
 
           {!toggle ? (
             <Button className="block" />

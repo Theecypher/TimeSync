@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import useStore from "../../../zustand-store/store";
 import axios from "axios";
-import { convertTimer } from "../../../utils/utils";
+import { convertTimer, formatDate, getAmPm } from "../../../utils/utils";
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
@@ -65,9 +65,9 @@ const Dashboard = () => {
     axios
       .get(`${baseUrl}/timers`, { headers })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response?.data?.status == "success") {
-          let data = response?.data?.tasks;
+          let data = response?.data?.timers;
           setTimers(data);
         }
       })
@@ -79,20 +79,23 @@ const Dashboard = () => {
     getTimers();
   }, []);
   return (
-    <div className="w-full h-screen overflow-hidden relative flex flex-col font-montserrat">
+    <div className="w-full relative flex flex-col font-montserrat pb-[20px box-border">
       {/* The Top Nav */}
-      <div className="w-full bg-white sticky top-0 z-30 h-[88px] border-b-[1px] border-[#F5F5F5] px-[24px] flex  items-center justify-end ">
+      <div className="w-full bg-white lg:sticky top-0 z-30 h-[88px] border-b-[1px] border-[#F5F5F5] px-[24px] hidden lg:flex  items-center justify-end ">
         <TopNav />
       </div>
-      <main className="bg-[#F6F6F6] h-full w-full px-[24px] ">
-        <div className="w-full flex gap-x-[16px] pt-[16px]">
+      <main className="bg-[#F6F6F6] lg:h-[calc(100vh-88px)] overflow-hidden w-full px-[24px] pb-[20px] box-border">
+        <div className="w-full flex lg:flex-row flex-col gap-x-[16px] pt-[16px]">
           {/* Today's Timer */}
           <div className="w-full bg-white h-[307px]  px-[24px] pt-[24px] rounded-[16px] overflow-hidden">
             <div className="flex justify-between ">
               <h4 className="text-[#1E1E1E] text-[14px] font-[600] leading-[16.8px] tracking-[-0.28px]">
                 Today's timer
               </h4>
-              <Link to='time-tracker'  className="text-primary-blue underline text-[14px] leading-[14px] tracking-[-0.56px] font-[500] ">
+              <Link
+                to="time-tracker"
+                className="text-primary-blue underline text-[14px] leading-[14px] tracking-[-0.56px] font-[500] "
+              >
                 See all
               </Link>
             </div>
@@ -114,13 +117,13 @@ const Dashboard = () => {
                       <table className="">
                         <tbody>
                           <tr>
-                            <td>{convertTimer(item.start)}</td>
+                            <td className="pr-[24px]">{convertTimer(item.start)}</td>
                             <td>{convertTimer(item.stop)}</td>
                             <td>0:00m</td>
                           </tr>
                           <tr>
-                            <td>start</td>
-                            <td>Finish</td>
+                            <td className="pr-[24px]">start</td>
+                            <td className="pr-[24px]">Finish</td>
                             <td>Overtime</td>
                           </tr>
                         </tbody>
@@ -188,7 +191,7 @@ const Dashboard = () => {
           </div>
         </div>
         {/* Todo List */}
-        <div className="w-full h-full overflow-auto bg-white mt-[16px] flex flex-col p-[24px]">
+        <div className="relative w-full h-[60%] overflow-y-scroll bg-white mt-[16px] flex flex-col p-[24px]">
           <div className="flex justify-between">
             <span className="w-full">To do list</span>
             <div className="w-full flex gap-x-[8px]">
@@ -196,32 +199,32 @@ const Dashboard = () => {
               <MdOutlineKeyboardArrowDown className=" rotate-[0deg] text-[18px] fill-[#1E1E1E]" />
             </div>
           </div>
-          <table className="min-w-full overflow-y-scroll mt-[51px] ">
-            <thead>
-              <tr className="">
-                <th className="text-start">Task</th>
-                <th className="text-start">Team</th>
-                <th className="text-start">Date</th>
-                <th className="text-start">Time</th>
-                <th className="text-start">Status</th>
-              </tr>
-            </thead>
-            <tbody className="table-row-group">
-              {timerList?.map((item, index) => (
-                <tr key={index} className="space-y-[20px] ">
-                  <td className="py-[20px] pr-[80px] max-w-[248px] text-ellipsis  ">
-                    Complete the design of the mobile version of the desktop
-                    design
-                  </td>
-                  <td>Digital Productivity</td>
-                  <td>12th, Mar 2023</td>
-                  <td>12 PM</td>
-                  <td>Completed</td>
+          <div className="w-full h-full overflow-y-scroll mt-[51px]">
+            <table className="min-w-full">
+              <thead>
+                <tr className="">
+                  <th className="text-start">Task</th>
+                  <th className="text-start">Team</th>
+                  <th className="text-start">Date</th>
+                  <th className="text-start">Time</th>
+                  <th className="text-start">Status</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          <div className="flex justify-center">
+              </thead>
+              <tbody className="table-row-group">
+                {timers?.map((item, index) => (
+                  <tr key={item.id} className="space-y-[20px] ">
+                    <td className="py-[20px] pr-[80px] max-w-[248px] text-ellipsis  ">{item.timerName}
+                    </td>
+                    <td>Digital Productivity</td>
+                    <td>{formatDate(item.start)}</td>
+                    <td>{convertTimer(item.start)} {getAmPm(item.start)}</td>
+                    <td>{item.status}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="w-full absolute bottom-0 mx-auto flex justify-center">
             <button className="text-primary-blue underline">see all</button>
           </div>
         </div>
