@@ -7,6 +7,7 @@ import useReminderStore from "../../../zustand-store/reminderStore";
 import axios from "axios";
 import useStore from "../../../zustand-store/store";
 import { toast } from "sonner";
+import Close from "./Assests/close.svg";
 
 const dropIn = {
   hidden: {
@@ -127,7 +128,7 @@ const TimerModal = ({ handleClose, getTimers }) => {
     <TimerBackdrop onclick={handleClose}>
       <motion.form
         // onclick={(e) => e.stopPropagation()}
-        className="inline-flex px-[40px] py-[32px] m-auto border items-start
+        className="inline-flex px-[30px] py-[20px] m-auto border items-start
             rounded-[16px] bg-white
             orange-gradient gap-[10px]"
         // variants={dropIn}
@@ -136,19 +137,21 @@ const TimerModal = ({ handleClose, getTimers }) => {
         // exit="exit"
         onSubmit={handleSetTimer}
       >
-        <div className="flex flex-col items-center gap-[40px]">
-          <div className="flex justify-between w-[480px] items-center font-montserrat">
+        <div className="flex flex-col items-center gap-[10px]">
+          <div className="flex justify-between w-[410px] items-center font-montserrat">
             <p className="font-[600] text-[20px] leading-[30px] tracking-[-0.46px] text-[#1e1e1e]">
               Set timer
             </p>
-            <AiOutlineClose
-              className="flex justify-between items-center text-[#1e1e1e] bg-[#f5f5f5] font-extrabold rounded-md w-[24px]"
+            <img
+              src={Close}
+              className="flex justify-between items-center text-[#1e1e1e] bg-[#f5f5f5] font-extrabold rounded-md w-[30px]"
               onClick={handleClose}
+              alt=""
             />
           </div>
 
-          <div className="flex flex-col w-[480px]">
-            <div className="flex w-full flex-col items-start gap-2">
+          <div className="flex flex-col w-[410px] gap-2">
+            <div className="flex w-full flex-col items-start gap-1">
               <label
                 htmlFor="name"
                 className="text-[#1e1e1e] font-Monserrat text-[16px] font-[400] leading-[24px] tracking-[-0.368px]"
@@ -165,7 +168,7 @@ const TimerModal = ({ handleClose, getTimers }) => {
               />
             </div>
 
-            <div className="flex w-full flex-col gap-2">
+            <div className="flex w-full flex-col gap-1">
               <label
                 htmlFor="start"
                 className="text-[#1e1e1e] font-Monserrat text-[16px] font-[400] leading-[24px] tracking-[-0.368px]"
@@ -182,7 +185,7 @@ const TimerModal = ({ handleClose, getTimers }) => {
               />
             </div>
 
-            <div className="flex w-full flex-col gap-2 items-start">
+            <div className="flex w-full flex-col gap-1 items-start">
               <label
                 htmlFor="finish"
                 className="text-[#1e1e1e] font-Monserrat text-[16px] font-[400] leading-[24px] tracking-[-0.368px]"
@@ -190,22 +193,22 @@ const TimerModal = ({ handleClose, getTimers }) => {
                 Finish
               </label>
               <input
-                type="text"
-                className="Timer-modal borderstyle flex w-full py-[14px] justify-center items-center rounded-[16px] border"
-                value={value.schedule}
+                type="time"
+                className="Timer-modal borderstyle flex w-full py-[14px] px-[15px] justify-center items-center rounded-[16px] border"
+                value={value.finish}
                 placeholder="Finishing Time"
                 name="schedule"
                 onChange={handleChange}
               />
             </div>
 
-            <div className="flex w-full flex-col gap-2 items-start">
+            <div className="flex relative w-full flex-col gap-1 items-start">
               <label htmlFor="schedule" className="">
                 Calender Schedule
               </label>
               <input
                 type="date"
-                className="Timer-modalborderstyle mb-2 flex w-full py-[14px] justify-center items-center rounded-[16px] border pl-[30px]"
+                className="Timer-modalborderstyle mb-2 flex w-full py-[14px] justify-center items-center rounded-[16px] border pl-[30px] pr-[15px]"
                 value={value.schedule}
                 placeholder="Timer name"
                 name="schedule"
@@ -218,7 +221,6 @@ const TimerModal = ({ handleClose, getTimers }) => {
               className="flex m-auto justify-center items-center text-[#FFFFFF] bg-[#034592] font-[500] text-[13.714px] leading-[20.571px] rounded-2xl py-[5.7px] px-[38.095px] gap-[3.81px]"
             >
               {" "}
-              Create
               {isLoading ? "Creating..." : "Create"}
             </button>
           </div>
