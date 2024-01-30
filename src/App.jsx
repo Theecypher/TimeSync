@@ -10,9 +10,6 @@ import ResetPassword from "./Pages/Onboarding/ResetPassword/ResetPassword";
 import CalendarView from "./Pages/Timer/TimerModal/CalendarView";
 import Onboarding from "./Pages/Onboarding/sign-up/onboarding/Onboarding";
 import Teams from "./Pages/dashboard/teams/Teams";
-import About from "./Pages/about/About";
-import Why from "./Pages/why/Why";
-import Features from "./Pages/features/Features";
 import ResetComponentPassword from "./Pages/Onboarding/ResetPassword/CreatePasswordComponent";
 import ResetCode from "./Pages/Onboarding/ResetPassword/ResetCode";
 import TimeTracker from "./Pages/dashboard/timeTracker/TimeTracker";
@@ -22,14 +19,14 @@ import useStore from "./zustand-store/store";
 
 function App() {
   const [otpTime, setOtpTime] = useState(localStorage.getItem("otp") || 300);
-  const location = useLocation()
-  const router = useNavigate()
-  const {token} = useStore()
-  useEffect(()=>{
-    if(token && location.pathname.includes('dashboard')){
-      router('/signin')
+  const location = useLocation();
+  const router = useNavigate();
+  const { token } = useStore();
+  useEffect(() => {
+    if (token && location.pathname.includes("dashboard")) {
+      router("/signin");
     }
-  },[])
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {

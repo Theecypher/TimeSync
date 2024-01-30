@@ -26,6 +26,7 @@ input[type="time"]::placeholder {
 
 input[type="date"]::before {
   position: absolute;
-  left: 45px;
-  content: url("../../../assets/calendar.svg");
+  left: 10px;
+  top: 45px;
+  content: url("./Assests/calendar.svg");
 }
