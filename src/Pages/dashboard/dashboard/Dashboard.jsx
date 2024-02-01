@@ -10,54 +10,17 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import useStore from "../../../zustand-store/store";
 import axios from "axios";
 import { convertTimer, formatDate, getAmPm } from "../../../utils/utils";
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
+import { TailSpin } from "react-loader-spinner";
 
 const Dashboard = () => {
-  const [timerList, setTimerList] = useState([
-    {
-      title: "",
-      status: "",
-    },
-    {
-      title: "",
-      status: "",
-    },
-    {
-      title: "",
-      status: "",
-    },
-    {
-      title: "",
-      status: "",
-    },
-    {
-      title: "",
-      status: "",
-    },
-    {
-      title: "",
-      status: "",
-    },
-    {
-      title: "",
-      status: "",
-    },
-    {
-      title: "",
-      status: "",
-    },
-    {
-      title: "",
-      status: "",
-    },
-    {
-      title: "",
-      status: "",
-    },
-  ]);
+
   const [timers, setTimers] = useState(null);
-  const {token, baseUrl} = useStore()
-  // console.log(token)
+  const { token, baseUrl } = useStore();
+  const [openModal, setOpenModal, setHeader, header] = useOutletContext();
+  useEffect(() => {
+    setHeader("Dashboard");
+  }, []);
   const headers = {
     Authorization: `Bearer ${token}`,
   };
@@ -88,71 +51,84 @@ const Dashboard = () => {
         <div className="w-full flex lg:flex-row flex-col gap-x-[16px] pt-[66px] lg:pt-[16px]">
           {/* Today's Timer */}
           <div className="w-full bg-white h-[307px]  lg:px-[24px] pt-[24px] rounded-[16px] overflow-hidden">
-            <div className="flex justify-between ">
-              <h4 className="text-[#1E1E1E] text-[14px] font-[600] leading-[16.8px] tracking-[-0.28px]">
-                Today's timer
-              </h4>
-              <Link
-                to="time-tracker"
-                className="text-primary-blue underline text-[14px] leading-[14px] tracking-[-0.56px] font-[500] "
-              >
-                See all
-              </Link>
-            </div>
-            <div className="h-full overflow-y-scroll flex mt-[24px] flex-col gap-y-[24px] ">
-              {timers?.map((item, index) => (
-                <div
-                  key={item.id}
-                  className="flex flex-col justify-center gap-y-[20px] border-[1px] border-primary-blue rounded-[12px] p-[16px] "
-                >
-                  <div className="flex justify-between items-center">
-                    <div className="flex flex-col gap-y-[12px]">
-                      <small className="max-lg:text-[10px] ">
-                        {item.status}
-                      </small>
-                      <span className=" max-lg:text-[16px] font-[500]">
-                        {item.timerName}
-                      </span>
-                    </div>
-                    <LuCalendarRange />
-                  </div>
-                  <div className="flex justify-between">
-                    <div className=" flex flex-col">
-                      <table className="text-[#1E1E1E]">
-                        <tbody className="">
-                          <tr className="">
-                            <td className="pr-[24px] flex items-baseline text-[20px] font-[300] whitespace-nowrap">
-                              {" "}
-                              <span>{convertTimer(item.start)}</span>{" "}
-                              <span className="text-[12px] font-[500]">
-                                {getAmPm(item.start)}
-                              </span>
-                            </td>
-                            <td className=" pr-[24px] text-[20px] font-[300] whitespace-nowrap">
-                              {convertTimer(item.stop)}
-                              <span className="text-[12px] font-[500]">
-                                {getAmPm(item.stop)}
-                              </span>
-                            </td>
-                            <td className="text-[20px] font-[300] whitespace-nowrap">
-                              0:00<span className="text-[12px]">m</span>
-                            </td>
-                          </tr>
-                          <tr className="max-lg:text-[12px]">
-                            <td className="pr-[24px]">start</td>
-                            <td className="pr-[24px]">Finish</td>
-                            <td>Overtime</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <Button className="self-center bg-error-1 px-[16px] w-fit py-[8px] h-fit">
-                      Pause
-                    </Button>
-                  </div>
+            {timers ? (
+              <>
+                <div className="flex justify-between ">
+                  <h4 className="text-[#1E1E1E] text-[14px] font-[600] leading-[16.8px] tracking-[-0.28px]">
+                    Today's timer
+                  </h4>
+                  <Link
+                    to="time-tracker"
+                    className="text-primary-blue underline text-[14px] leading-[14px] tracking-[-0.56px] font-[500] "
+                  >
+                    See all
+                  </Link>
                 </div>
-              ))}
-            </div>
+                <div className="h-full overflow-y-scroll flex mt-[24px] flex-col gap-y-[24px] ">
+                  {timers?.map((item, index) => (
+                    <div
+                      key={item.id}
+                      className="flex flex-col justify-center gap-y-[20px] border-[1px] border-primary-blue rounded-[12px] p-[16px] "
+                    >
+                      <div className="flex justify-between items-center">
+                        <div className="flex flex-col gap-y-[12px]">
+                          <small className="max-lg:text-[10px] ">
+                            {item.status}
+                          </small>
+                          <span className=" max-lg:text-[16px] font-[500]">
+                            {item.timerName}
+                          </span>
+                        </div>
+                        <LuCalendarRange />
+                      </div>
+                      <div className="flex justify-between">
+                        <div className=" flex flex-col">
+                          <table className="text-[#1E1E1E]">
+                            <tbody className="">
+                              <tr className="">
+                                <td className="pr-[24px] flex items-baseline text-[20px] font-[300] whitespace-nowrap">
+                                  {" "}
+                                  <span>{convertTimer(item.start)}</span>{" "}
+                                  <span className="text-[12px] font-[500]">
+                                    {getAmPm(item.start)}
+                                  </span>
+                                </td>
+                                <td className=" pr-[24px] text-[20px] font-[300] whitespace-nowrap">
+                                  {convertTimer(item.stop)}
+                                  <span className="text-[12px] font-[500]">
+                                    {getAmPm(item.stop)}
+                                  </span>
+                                </td>
+                                <td className="text-[20px] font-[300] whitespace-nowrap">
+                                  0:00<span className="text-[12px]">m</span>
+                                </td>
+                              </tr>
+                              <tr className="max-lg:text-[12px]">
+                                <td className="pr-[24px]">start</td>
+                                <td className="pr-[24px]">Finish</td>
+                                <td>Overtime</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <Button className="self-center bg-error-1 px-[16px] w-fit py-[8px] h-fit">
+                          Pause
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <div className="w-full flex justify-center h-full items-center">
+                <TailSpin
+                  width={"50"}
+                  height={"50"}
+                  color="#034592"
+                  className=""
+                />
+              </div>
+            )}
           </div>
           {/* Analtics and Report */}
           <div className="w-full lg:w-max lg:h-[307px] max-lg:mt-[40px] rounded-[16px] flex flex-col gap-y-[24px] bg-white lg:p-[24px]">
@@ -226,34 +202,45 @@ const Dashboard = () => {
               <MdOutlineKeyboardArrowDown className=" rotate-[0deg] text-[18px] fill-[#1E1E1E]" />
             </div>
           </div>
-          <div className="w-full h-full overflow-y-scroll mt-[51px]">
-            <table className="min-w-full">
-              <thead>
-                <tr className="">
-                  <th className="text-start">Task</th>
-                  <th className="text-start">Team</th>
-                  <th className="text-start">Date</th>
-                  <th className="text-start">Time</th>
-                  <th className="text-start">Status</th>
-                </tr>
-              </thead>
-              <tbody className="table-row-group">
-                {timers?.map((item, index) => (
-                  <tr key={item.id} className="space-y-[20px] ">
-                    <td className="py-[20px] pr-[80px] max-w-[248px] text-ellipsis  ">
-                      {item.timerName}
-                    </td>
-                    <td>Digital Productivity</td>
-                    <td>{formatDate(item.start)}</td>
-                    <td>
-                      {convertTimer(item.start)} {getAmPm(item.start)}
-                    </td>
-                    <td>{item.status}</td>
+          {timers ? (
+            <div className="w-full h-full overflow-y-scroll mt-[51px]">
+              <table className="min-w-full">
+                <thead>
+                  <tr className="">
+                    <th className="text-start">Task</th>
+                    <th className="text-start">Team</th>
+                    <th className="text-start">Date</th>
+                    <th className="text-start">Time</th>
+                    <th className="text-start">Status</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="table-row-group">
+                  {timers?.map((item, index) => (
+                    <tr key={item.id} className="space-y-[20px] ">
+                      <td className="py-[20px] pr-[80px] max-w-[248px] text-ellipsis  ">
+                        {item.timerName}
+                      </td>
+                      <td>Digital Productivity</td>
+                      <td>{formatDate(item.start)}</td>
+                      <td>
+                        {convertTimer(item.start)} {getAmPm(item.start)}
+                      </td>
+                      <td>{item.status}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="w-full flex justify-center h-full items-center">
+              <TailSpin
+                width={"50"}
+                height={"50"}
+                color="#034592"
+                className=""
+              />
+            </div>
+          )}
           <div className="w-full absolute bottom-0 mx-auto flex justify-center">
             <button className="text-primary-blue underline">see all</button>
           </div>
