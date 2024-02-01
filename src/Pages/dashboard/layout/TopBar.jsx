@@ -8,7 +8,7 @@ const TopBar = ({header, setopenMenu}) => {
   }
   return (
     <div className="w-full relative border-b">
-      <nav className="lg:hidden bg-white w-full max-lg:h-[52px] fixed pt-[20px] left-0 px-[13px] z-[99999] top-0 flex justify-between border-b">
+      <nav className="lg:hidden bg-white w-full max-lg:h-[52px] fixed pt-[20px] left-0 px-[13px] top-0 flex justify-between border-b">
         <HamburgerMenuIcon onClick={toggleMenu} className=" w-[20px] h-[20px]" />
         <h3>{header}</h3>
         {/* plus icon */}

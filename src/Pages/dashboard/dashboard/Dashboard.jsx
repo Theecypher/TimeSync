@@ -202,7 +202,7 @@ const Dashboard = () => {
               <MdOutlineKeyboardArrowDown className=" rotate-[0deg] text-[18px] fill-[#1E1E1E]" />
             </div>
           </div>
-          {!timers ? (
+          {timers ? (
             <div className="w-full h-full overflow-y-scroll mt-[51px]">
               <table className="min-w-full">
                 <thead>

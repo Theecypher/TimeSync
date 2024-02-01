@@ -10,6 +10,7 @@ import { BiBarChartSquare } from "react-icons/bi";
 import { IoSettingsOutline } from "react-icons/io5";
 import logo from '../../../assets/Logo.svg'
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import avatar from '../../../assets/profile-avatar.svg'
 
 const SideBar = ({ openMenu, closeMenu }) => {
   const path = useLocation().pathname
@@ -119,12 +120,17 @@ const SideBar = ({ openMenu, closeMenu }) => {
           </div>
         </div>
         {/* Settings */}
+        <div className="w-full flex flex-col gap-y-[64px] items-center">
         <NavLink to="#" className="flex items-center gap-x-[8px] p-[10px]">
           <IoSettingsOutline />
           <span className="max-lg:hidden text-[12px] font-[500] leading-[14.4px] tracking-[-0.24px]">
             Settings
           </span>
         </NavLink>
+        <button>
+          <img src={avatar} className="w-[24px] h-[24px] rounded-full"/>
+        </button>
+        </div>
       </div>
     </div>
   );
