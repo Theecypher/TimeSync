@@ -48,7 +48,7 @@ const Project = () => {
   return (
     <div className="w-full  min-h-[calc(100vh-88px)] flex flex-col lg:px-[20px] max-lg:pt-[80px] ">
       {/* Top Nav */}
-      <div className="w-full bg-white sticky top-0 z-30 h-[80px] border-b-[1px] border-[#F5F5F5] px-[24px] hidden lg:flex  items-center justify-end ">
+      <div className="w-full bg-white sticky top-0 z-[10] h-[80px] border-b-[1px] border-[#F5F5F5] px-[24px] hidden lg:flex  items-center justify-end ">
         <ProjectTopNav
           openModal={openModal}
           setOpenModal={setOpenProjectModal}
