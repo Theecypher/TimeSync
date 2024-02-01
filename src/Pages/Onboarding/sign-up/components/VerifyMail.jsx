@@ -84,7 +84,7 @@ const VerifyMail = ({otpTime, setOtpTime}) => {
       .post(`${baseUrl}/auth/resend-otp`, "", { headers })
       .then((response) => {
         console.log(response);
-        toast.success(response?.data?.message || response?.data?.data?.message);
+        toast.success(response?.data?.message || response?.data?.data?.message || "Token resent successfully!");
         setOtpTime(300)
       })
       .catch((err) => {
@@ -119,15 +119,15 @@ const VerifyMail = ({otpTime, setOtpTime}) => {
             />
           ))}
         </div>
-        <div className="flex flex-wrap">
-          <p className="flex-grow0 text-[14px] font-[400] leading-[23.6px]">
+        <div className=" flex max-lg:flex-nowrap gap-x-[2px] flex-wrap ">
+          <p className="shrink-0 text-[14px] font-[400] leading-[23.6px]">
             Code will expire in {formatTime(otpTime)}
           </p>
           <button
             disabled ={otpTime >0}
             type="button"
             onClick={handleResendOtp}
-            className="pl-1 text-main-blue font-[400] text-[14px] underline underline-offset-1 leading-[23.6px] disabled:opacity-50"
+            className="shrink-0 text-start text-main-blue font-[400] text-[14px] underline underline-offset-1 leading-[23.6px] disabled:opacity-50"
           >
             Resend code
           </button>

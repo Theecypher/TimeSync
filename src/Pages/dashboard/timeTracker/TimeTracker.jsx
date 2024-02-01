@@ -10,19 +10,26 @@ import TimerModal from "../../Timer/TimerModal/TimerModal";
 import axios from "axios";
 import TimerView from "./components/TimerView";
 import ProjectTopNav from "../../../../TopNav";
+import { useOutletContext } from "react-router-dom";
 
 const TimeTracker = () => {
   const [activeView, setActiveView] = useState("timer");
   const [tasks, setTasks] = useState(tasksData)
   const [timers, setTimers] = useState(null)
-  const [openModal, setOpenModal] = useState(false)
-  const closeModal =()=>setOpenModal(false)
+
+  const [openTimerModal, setOpenTimerModal] = useState(false)
+  const closeModal =()=>setOpenTimerModal(false)
+
   const {baseUrl, token} = useStore()
   // console.log(baseUrl)
     const headers = {
       Authorization: `Bearer ${token}`,
     };
 
+ const [openModal, setOpenModal, setHeader, header] = useOutletContext();
+ useEffect(() => {
+   setHeader("Timers");
+ }, []);
   const getTimers=()=>{
     axios.get(`${baseUrl}/timers`, {headers})
     .then((response)=>{
@@ -44,7 +51,9 @@ const TimeTracker = () => {
       {/* Top Nav */}
       <div className="w-full bg-white sticky top-0 z-30 h-[88px] border-b-[1px] border-[#F5F5F5] px-[24px] hidden lg:flex  items-center justify-end ">
         <Button
-          onClick={() => setOpenModal(true)}
+
+          onClick={() => setOpenTimerModal(true)}
+
           className="flex items-center gap-1"
         >
           Set timer <PlusIcon height={16} width={16} color="white" />
