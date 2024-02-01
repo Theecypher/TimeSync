@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "../../../components/ui/Modal";
 import { useOutletContext } from "react-router-dom";
 import ProjectModal from "./components/ProjectModal";
@@ -7,9 +7,9 @@ import Button from "../../../components/ui/Button";
 import ProjectTopNav from "./components/TopNav";
 
 const Project = () => {
-  const [openModal, setOpenModal] = useOutletContext();
+  const [openProjectModal, setOpenProjectModal] = useOutletContext();
   const closeModal = () => {
-    setOpenModal(false);
+    setOpenProjectModal(false);
   };
   const [projects, setProjects] = useState([
     {
@@ -41,13 +41,16 @@ const Project = () => {
       team: "Team X",
     },
   ]);
-
+ const [openModal, setOpenModal, setHeader, header] = useOutletContext();
+ useEffect(() => {
+   setHeader("Project");
+ }, []);
   return (
     <div className="w-full  min-h-[calc(100vh-88px)] flex flex-col px-[20px] ">
       <div className="w-full bg-white sticky top-0 z-30 h-[88px] border-b-[1px] border-[#F5F5F5] px-[24px] flex  items-center justify-end ">
-        <ProjectTopNav openModal={openModal} setOpenModal={setOpenModal} />
+        <ProjectTopNav openModal={openModal} setOpenModal={setOpenProjectModal} />
       </div>
-      {/* <ProjectModal openModal={openModal} closeModal={closeModal} /> */}
+      {/* <ProjectModal openModal={openProjectModal} closeModal={closeModal} /> */}
       <h1 className="mt-[32px] font-[500] text-[48px] leading-[48px] text-[#3D3D3D]">
         Project
       </h1>
