@@ -11,15 +11,15 @@ import arrow from './assets/Arrow 1.svg';
 
 const Features = () => {
   return (
-    <div className='bg-[#f9fcfe] sm:h-[900px] h-[1800px]'>
+    <div className='bg-[#f9fcfe] md:h-[900px] h-[1800px]'>
 <div className='flex justify-end gap-[3rem] items-center'>
-    <div className='sm:invisible visible'>
+    <div className='md:invisible visible'>
        <img src={arrow} alt='arrow'/>
     </div>
     <div className='flex justify-center'>
-        <p className='text-[#034592] sm:text-[56px] text-[24px] sm:w-[850px] w-[200px] font-[700]'>Features That Works For You</p>
+        <p className='text-[#034592] md:text-[56px] text-[24px] md:w-[850px] w-[200px] font-[700]'>Features That Works For You</p>
     </div>
-    <div className='sm:visible invisible'>
+    <div className='md:visible invisible'>
         <div className='flex gap-[0.3rem] mb-[5px] '>
             <div className='bg-[#eef6fe] w-[15px] h-[15px] rounded-full'></div>
             <div className='bg-[#eef6fe] w-[15px] h-[15px] rounded-full'></div>
@@ -100,81 +100,49 @@ const Features = () => {
         </div>
     </div>
 </div>
-<div className='flex flex-col justify-center items-center sm:flex-row sm:justify-between sm:mt-[-490px] mt-[40px] ml-[30px] mr-[25px]'>
-  <div className='flex flex-col items-center sm:items-start'>
+<div className='flex flex-col justify-center items-center md:flex-row sm:justify-between md:mt-[-490px] mt-[40px] ml-[30px] mr-[25px]'>
+  <div className='flex flex-col items-center md:items-start'>
     <div className='border border-[#034592] rounded-[6.038px] w-[80px] h-[84px] flex justify-center items-center'>
       <img src={pack} alt='package' />
     </div>
-    <div className='w-[346px] h-[72px] text-center sm:text-left mt-3 sm:mt-0'>
-      <p className='sm:text-[32px] text-[24px] text-[#034592] font-[700]'>Task Management</p>
+    <div className='w-[346px] h-[72px] text-center md:text-left mt-3 sm:mt-0'>
+      <p className='md:text-[32px] text-[24px] text-[#034592] font-[700]'>Task Management</p>
       <p className='text-[20px] text-[#4D4D4D]'>Stay on top of your to-do list with easy task creation, prioritization, and collaboration.</p>
     </div>
   </div>
 
-  <div className='flex flex-col items-center mt-[60px] sm:mt-0 sm:ml-6'>
-    <div className='border border-[#034592] rounded-[6.038px] w-[80px] h-[84px] flex justify-center items-center sm:mr-[250px]'>
+  <div className='flex flex-col items-center mt-[60px] md:mt-0 sm:ml-6'>
+    <div className='border border-[#034592] rounded-[6.038px] w-[80px] h-[84px] flex justify-center items-center md:mr-[250px]'>
       <img src={watch} alt='watch' />
     </div>
-    <div className='w-[346px] h-[72px] text-center sm:text-left mt-3 sm:mt-0'>
-      <p className='sm:text-[32px] text-[24px] text-[#034592] font-[700]'>Time Tracking</p>
+    <div className='w-[346px] h-[72px] text-center md:text-left mt-3 sm:mt-0'>
+      <p className='md:text-[32px] text-[24px] text-[#034592] font-[700]'>Time Tracking</p>
       <p className='text-[20px] text-[#4D4D4D]'>Effortlessly track your work hours and analyze where your time goes for improved efficiency.</p>
     </div>
   </div>
 </div>
 
-<div className='flex flex-col justify-center items-center sm:flex-row sm:justify-between pt-[50px] ml-[30px] mr-[25px] mt-[60px]'>
-  <div className='flex flex-col items-center sm:items-start'>
-    <div className='border border-[#034592] rounded-[6.038px] w-[80px] h-[84px] flex justify-center items-center mt-6 sm:mt-0 sm:ml-0'>
+<div className='flex flex-col justify-center items-center md:flex-row sm:justify-between pt-[50px] ml-[30px] mr-[25px] mt-[60px]'>
+  <div className='flex flex-col items-center md:items-start'>
+    <div className='border border-[#034592] rounded-[6.038px] w-[80px] h-[84px] flex justify-center items-center mt-6 md:mt-0 sm:ml-0'>
       <img src={analy} alt='analytics' />
     </div>
-    <div className='w-[346px] h-[72px] text-center sm:text-left mt-3 sm:mt-0'>
-      <p className='sm:text-[32px] text-[24px] text-[#034592] font-[700]'>Custom Reports</p>
+    <div className='w-[346px] h-[72px] text-center md:text-left mt-3 sm:mt-0'>
+      <p className='md:text-[32px] text-[24px] text-[#034592] font-[700]'>Custom Reports</p>
       <p className='text-[20px] text-[#4D4D4D]'>Tailor reports to your needs. Get insights that matter most to you and your team.</p>
     </div>
   </div>
 
-  <div className='flex flex-col items-center mt-[50px] sm:mt-0 sm:ml-6'>
-    <div className='border border-[#034592] rounded-[6.038px] w-[80px] h-[84px] flex justify-center items-center mt-6 sm:mt-0 sm:mr-[250px]'>
+  <div className='flex flex-col items-center mt-[50px] md:mt-0 sm:ml-6'>
+    <div className='border border-[#034592] rounded-[6.038px] w-[80px] h-[84px] flex justify-center items-center mt-6 md:mt-0 md:mr-[250px]'>
       <img src={users} alt='users' />
     </div>
-    <div className='w-[346px] h-[72px] text-center sm:text-left mt-3 sm:mt-0'>
-      <p className='sm:text-[32px] text-[24px] text-[#034592] font-[700]'>Collaboration</p>
+    <div className='w-[346px] h-[72px] text-center md:text-left mt-3 md:mt-0'>
+      <p className='md:text-[32px] text-[24px] text-[#034592] font-[700]'>Collaboration</p>
       <p className='text-[20px] text-[#4D4D4D]'>Work together seamlessly. Assign tasks, share updates, and keep everyone in the loop.</p>
     </div>
   </div>
 </div>
-
-
-    {/* <div className='flex sm:justify-between sm:m-[30px]'>
-        <div className='border border-[#034592] rounded-[6.038px] w-[80px] h-[84px] flex justify-center'><img src={pack} alt='package'/></div>
-        <div className='border border-[#034592] rounded-[6.038px] w-[80px] h-[84px] flex justify-center'><img src={watch} alt='watch'/></div>
-    </div>
-    <div className='flex sm:justify-between m-[30px]'>
-      <div className='w-[346px] h-[72px]'>
-        <p className='sm:text-[32px] text-[24px] text-[#034592] font-[700]'>Task Management</p>
-        <p className='text-[20px] text-[#4D4D4D]'>Stay on top of your to-do list with easy task creation, prioritization, and collaboration.</p>
-      </div>
-      <div className='w-[346px] h-[72px]'>
-        <p className='sm:text-[32px] text-[24px] text-[#034592] font-[700]'>Time Tracking</p>
-        <p className='text-[20px] text-[#4D4D4D]'>Effortlessly track your work hours and analyze where your time goes for improved efficiency.</p>
-      </div>
-    </div>
-   
-
-    <div className='flex justify-between  mr-[30px] ml-[30px] mt-[-200px] '>
-        <div className='border border-[#034592] rounded-[6.038px] w-[80px] h-[84px] flex justify-center mt-[80px]'><img src={analy} alt='analytics'/></div>
-        <div className='border border-[#034592] rounded-[6.038px] w-[80px] h-[84px] flex justify-center mt-[80px]'><img src={users} alt='users'/></div>
-    </div>
-    <div className='flex justify-between m-[30px]'>
-      <div className='w-[346px] h-[72px]'>
-        <p className='sm:text-[32px] text-[24px] text-[#034592] font-[700]'>Custom Reports</p>
-        <p className='text-[20px] text-[#4D4D4D]'>Tailor reports to your needs. Get insights that matter most to you and your team.</p>
-      </div>
-      <div className='w-[346px] h-[72px]'>
-        <p className='sm:text-[32px] text-[24px] text-[#034592] font-[700]'>Collaboration</p>
-        <p className='text-[20px] text-[#4D4D4D]'>Work together seamlessly. Assign tasks, share updates, and keep everyone in the loop.</p>
-      </div>
-    </div> */}
     </div>
   )
 }

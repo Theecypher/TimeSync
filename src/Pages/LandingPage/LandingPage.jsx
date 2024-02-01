@@ -1,22 +1,20 @@
-import Copyright from "./Footer/Copyright";
 import CustomerFeedback from "./HowitWorks/CustomerFeedback";
-import Footer from "./Footer/footer";
 import Hero from "./Hero/Hero";
 import HowItWorks from "./HowitWorks/HowitWorks";
-import Navbar from "./Navbar/Navbar";
+import Features from "../features/Features";
 import About from "../about/About";
 import Why from "../why/Why";
-import Features from "../features/Features";
+import Footer from "./Footer/Footer";
 
 const LandingPage = () => {
   return (
     <section className="overflow-hidden">
       <Hero />
-      <About/>
-      <Why/>
-      <Features/>
+      <About />
+      <Why />
+      <Features />
+      <CustomerFeedback />
       <HowItWorks />
-      {/* <CustomerFeedback /> */}
       <Footer />
     </section>
   );

@@ -1,27 +1,42 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import SignIn from "./Pages/Onboarding/signIn/SignIn";
 import SignUp from "./Pages/Onboarding/sign-up/SignUp";
 import DashboardLayout from "./Pages/dashboard/layout/DashboardLayout";
-import Dashboard from "./Pages/dashboard/Dashboard";
+import Dashboard from "./Pages/dashboard/dashboard/Dashboard";
 import { Toaster } from "sonner";
 import ShowTimerModal from "./Pages/Timer/TimerModal/testTimer";
 import ResetPassword from "./Pages/Onboarding/ResetPassword/ResetPassword";
 import CalendarView from "./Pages/Timer/TimerModal/CalendarView";
 import Onboarding from "./Pages/Onboarding/sign-up/onboarding/Onboarding";
 import Teams from "./Pages/dashboard/teams/Teams";
-import About from "./Pages/about/About";
-import Why from "./Pages/why/Why";
-import Features from "./Pages/features/Features";
 import ResetComponentPassword from "./Pages/Onboarding/ResetPassword/CreatePasswordComponent";
 import ResetCode from "./Pages/Onboarding/ResetPassword/ResetCode";
 import TimeTracker from "./Pages/dashboard/timeTracker/TimeTracker";
 import Project from "./Pages/dashboard/project/Project";
-import Analytics from "./Pages/dashboard/analytics/Analytics";
 import LandingPage from "./Pages/LandingPage/LandingPage";
+import useStore from "./zustand-store/store";
 
 function App() {
   const [otpTime, setOtpTime] = useState(localStorage.getItem("otp") || 300);
+  const location = useLocation();
+  const router = useNavigate();
+  const { token } = useStore();
+  useEffect(() => {
+    if (!token && location.pathname.includes("dashboard")) {
+      router("/signin");
+    }
+    if (
+      (token && location.pathname.includes("signin")) ||
+      (token && location.pathname.includes("signup")) ||
+      (token &&
+        location.pathname.includes("createPassword")) ||
+        (token &&
+        location.pathname.includes("resetPassword"))
+    ) {
+      router("/dashboard");
+    }
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -47,20 +62,16 @@ function App() {
         />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/onboarding" element={<Onboarding />} />
-        <Route path="/" element={<LandingPage/>}/>
         <Route path="/resetPassword" element={<ResetPassword />} />
         <Route path="/resetCode" element={<ResetCode />} />
-        <Route path="/about" element={<About/>}/>
-        <Route path="/why" element={<Why/>}/>
-        <Route path="/features" element={<Features/>}/>
+        <Route path="/" element={<LandingPage />} />
         <Route path="/createPassword" element={<ResetComponentPassword />} />
         <Route path="/dashboard" element={<DashboardLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="time-tracker" element={<TimeTracker />} />
           <Route path="teams" element={<Teams />} />
           <Route path="calendar-view" element={<CalendarView />} />
-          <Route path="project" element={<Project/>}/>
-          <Route path="analytics" element={<Analytics/>}/>
+          <Route path="project" element={<Project />} />
         </Route>
         <Route path="/showTimerModal" element={<ShowTimerModal />} />
       </Routes>

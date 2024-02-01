@@ -1,13 +1,13 @@
 import Logo from "../../../assets/Logo.svg";
 import { Link } from "react-router-dom";
-import Instagram from "../../../assets/Instagram.svg";
-import Facebook from "../../../assets/Facebook.svg";
-import Telegram from "../../../assets/Telegram.svg";
+import Instagram from "./Assets/instagram.svg";
+import Facebook from "./Assets/facebook.svg";
+import Telegram from "./Assets/messanger.svg";
 
 const FooterContent = () => {
   return (
     <>
-      <div className="flex font-montserrat md:w-[290px] w-[375px] flex-col justify-center items-center gap-[42px] md:items-start md:gap-[8px] lg:gap-[16px]">
+      <div className="flex font-montserrat md:w-[360px] w-[375px] flex-col justify-center items-center gap-[42px] md:items-center md:gap-[20px]">
         <div className="flex items-center md:self-stretch">
           <img src={Logo} alt="" />
           <h3 className="">TimeSync</h3>
@@ -21,7 +21,8 @@ const FooterContent = () => {
         </p>
       </div>
 
-      <div className="md:flex flex-col text-[#2d2e2e] md:items-start md:gap-[16px] lg:gap-[24px]">
+      {/* <div className="md:flex flex-col text-[#2d2e2e] md:items-start md:gap-[16px] lg:gap-[24px]"> */}
+      <div className="flex flex-col justify-center items-center gap-[19px] md:items-start md:gap-[19px]">
         <p className="hidden md:block text-[#034592] text-center md:text-[16px] lg:text-[20px] font-[600] leading-[120%] tracking-[-0.4px]">
           Company
         </p>
@@ -35,7 +36,7 @@ const FooterContent = () => {
         </ul>
       </div>
 
-      <div className="md:flex flex-col justify-center items-start gap-[24px]">
+      {/* <div className="md:flex flex-col justify-center items-start gap-[24px]">
         <p className="hidden md:block text-[#034592] text-center md:text-[16px] lg:text-[20px] font-[600] leading-[120%] tracking-[-0.4px]">
           Link
         </p>
@@ -50,20 +51,49 @@ const FooterContent = () => {
             Cookie Policy
           </li>
         </ul>
+      </div> */}
+
+      <div className="flex flex-col justify-center items-center gap-[19px] md:items-start md:gap-[20px]">
+        <p className="hidden md:block text-[#034592] text-center md:text-[16px] lg:text-[20px] font-[600] leading-[100%] tracking-[-0.4px]">
+          Link
+        </p>
+        <ul className="flex flex-col justify-between items-center h-[131px] md:h-[80px] md:items-start">
+          <li className="md:text-[14px] lg:text-[16px] text-[#2d2e2e] font-[400] leading-normal">
+            Terms and condition
+          </li>
+          <li className="md:text-[14px] lg:text-[16px] text-[#2d2e2e] font-[400] leading-normal">
+            Privacy Policy
+          </li>
+          <li className="md:text-[14px] lg:text-[16px] text-[#2d2e2e] font-[400] leading-normal">
+            Cookie Policy
+          </li>
+        </ul>
       </div>
 
-      <div className="flex flex-col justify-center items-center gap-[19px] md:items-start md:gap-[24px]">
+      <div className="flex flex-col justify-center items-center gap-[19px] md:items-start md:gap-[19px]">
         <Link className="text-[#034592] items-center md:text-[14px] lg:text-[16px] font-[600] leading-normal md:leading-[100%] tracking-[-0.4px]">
           Social Media
         </Link>
-        <Link className="text-[#2d2e2e] text-center md:text-[14px] lg:text-[16px] font-[600] leading-normal">
+        <Link className="text-[#2d2e2e] hidden text-center md:text-[14px] lg:text-[16px] font-[600] leading-normal md:block">
           Connect with us
         </Link>
 
-        <div className="flex items-start md:gap-[3px] lg:gap-[16px]">
-          <img src={Instagram} alt="" />
-          <img src={Facebook} alt="" />
-          <img src={Telegram} alt="" />
+        <div className="flex gap-[16px] items-start md:gap-[4px] lg:gap-[16px]">
+          <img
+            src={Instagram}
+            className="w-[40px] height-[40px]  fill-[#E3EFFC]"
+            alt=""
+          />
+          <img
+            src={Facebook}
+            className="w-[40px] height-[40px]  fill-[#E3EFFC] "
+            alt=""
+          />
+          <img
+            src={Telegram}
+            className="w-[40px] height-[40px]  fill-[#E3EFFC] "
+            alt=""
+          />
         </div>
       </div>
     </>

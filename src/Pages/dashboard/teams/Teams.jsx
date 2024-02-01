@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Chat from "./components/Chat";
 import Shared from "./components/Shared";
 import Tasks from "./components/Tasks";
-import { MdArrowDropDown, MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import jade from './components/assets/Image-24.png';
 import safinatu from './components/assets/Safinatu.svg';
 import devguy from './components/assets/Devguy.svg';
 import jacob from './components/assets/Jacob.svg';
+import { useOutletContext } from "react-router-dom";
 
 const Teams = () => {
   const [activeTab, setActiveTab] = useState("Chat");
@@ -18,7 +19,6 @@ const Teams = () => {
   };
 
   const containerHeight = showOptions ? '120px' : '70px';
-
   const taskMenu = [
     {
       title: 'Todo',
@@ -78,19 +78,19 @@ const Teams = () => {
     },
     {
       title: '# Onboarding',
-      
+
     },
     {
       title: '# User research',
-      
+
     },
     {
       title: '# Illustration & icons',
-      
+
     },
     {
       title: '# Design system',
-      
+
     },
     {
       title: 'Direct messages', 
@@ -99,6 +99,7 @@ const Teams = () => {
     {
       title: 'Jade',
       img: jade,
+      
       fn: ()=>{
           setSubMenuActiveTab('Jade')
           console.log('Jade is active')}
@@ -120,7 +121,7 @@ const Teams = () => {
         console.log('Dev guy is active')
       }
     },   
-    
+
     {
       title: 'Jacob',
       img: jacob,
@@ -144,13 +145,18 @@ const Teams = () => {
       fn: () => setActiveTab("Tasks"),
     },
   ];
+  const [openModal, setOpenModal, setHeader, header] = useOutletContext()
+  useEffect(()=>{
+  setHeader('Teams')
+  },[])
   return (
     <div className="w-full flex flex-col">
-      <div className="w-full bg-white sticky top-0 z-30 h-[88px] border-b-[1px] border-[#F5F5F5] px-[24px] flex  items-center justify-end "></div>
+      {/* topNav */}
+      <div className="w-full bg-white sticky top-0 z-30 h-[88px] border-b-[1px] border-[#F5F5F5] px-[24px] hidden lg:flex items-center justify-end "></div>
       <div className="w-full relative flex flex-row ">
         {/* Side Nav */}
-        <aside className="fixed z-30 w-[254px] px-[22px] py-[32px] flex-shrink-0 h-[calc(100vh-88px)] bg-[#FDF3F3]  overflow-y-auto ">
-          <div className=" w-[209px] rounded-[12px] h-${containerHeight} overflow-hidden m-auto flex items-center bg-white gap-x-[8px] justify-center">
+        <aside className="fixed z-30 w-[254px] px-[22px] py-[32px] hidden lg:flex lg:flex-col flex-shrink-0 h-full bg-[#FDF3F3]  overflow-y-auto ">
+        <div className=" w-[209px] rounded-[12px] h-${containerHeight} overflow-hidden m-auto flex items-center bg-white gap-x-[8px] justify-center">
             <div className="flex flex-col">
             <div className="flex flex-row">
             <h4 className=" text-[#3D3D3D] text-[20px] font-[500] leading-[20px] tracking-[-0.8px]">Teams</h4>
@@ -200,16 +206,16 @@ const Teams = () => {
                 key={index} 
                 onClick={(item.fn)}
                 className={`${subMenuActiveTab == item.title && 'w-full bg-[#FCB59A] text-start rounded-[4px] '} w-full text-start flex p-[8px] ${item.className}`}>
-                  {item.img && <img src={item.img} alt={item.title} className="w-[24px] h-[24px] mr-[8px]"/>}
+                {item.img && <img src={item.img} alt={item.title} className="w-[24px] h-[24px] mr-[8px]"/>}
                   {item.title}
                 </button>
               )))
 }
           </div>
         </aside>
-        <div className="w-full relative flex flex-col pl-[254px] ">
+        <div className="w-full relative flex flex-col lg:pl-[254px] ">
           {/* menutop */}
-          <div className="sticky top-[88px] z-[99] w-full h-[88px] bg-white flex justify-between pl-[32px] pr-[24px] py-[24px] text-[16px] font-[500] leading-[16px] tracking-[-0.64px] text-[#7B7C7C] ">
+          <div className="sticky top-[29px] lg:top-[88px] z-[99] w-full lg:h-[88px] bg-white flex justify-between pl-[32px] pr-[24px] py-[24px] text-[16px] font-[500] leading-[16px] tracking-[-0.64px] text-[#7B7C7C] ">
             <div className=" flex gap-x-[16px] ">
               {menuTabs.map((tab, index) => (
                 <button
@@ -223,7 +229,7 @@ const Teams = () => {
                 </button>
               ))}
             </div>
-            <p className="font-[600]">Digital Productivity tools</p>
+            <p className="font-[600] max-lg:hidden">Digital Productivity tools</p>
           </div>
           {/* Main screen */}
           <main className="w-full bg-[#FAFAFA] min-h-[calc(100vh-176px)]">

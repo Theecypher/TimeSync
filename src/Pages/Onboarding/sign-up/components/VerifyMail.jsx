@@ -50,7 +50,7 @@ const VerifyMail = ({otpTime, setOtpTime}) => {
     setIsLoading(true);
     axios
       .post(
-        `${baseUrl}/auths/otp-verification`,
+        `${baseUrl}/auth/otp-verification`,
         {
           otp: otpString,
         },
@@ -60,6 +60,7 @@ const VerifyMail = ({otpTime, setOtpTime}) => {
         console.log(response);
         if (response.data.message) {
           toast.warning(response.data.message);
+          setIsLoading(false)
           return
         }
         let newToken = response?.data?.data?.token;
@@ -78,8 +79,9 @@ const VerifyMail = ({otpTime, setOtpTime}) => {
       });
   };
   const handleResendOtp = () => {
+    setIsLoading(false)
     axios
-      .post(`${baseUrl}/auths/resend-otp`, "", { headers })
+      .post(`${baseUrl}/auth/resend-otp`, "", { headers })
       .then((response) => {
         console.log(response);
         toast.success(response?.data?.message || response?.data?.data?.message);

@@ -3,7 +3,7 @@ import male from './assets/Male.svg';
 
 const About = () => {
   return (
-    <div className='m-[30px] flex sm:flex-row flex-col gap-[3rem] font-montserrat'>
+    <div className='m-[30px] flex md:flex-row flex-col gap-[3rem] font-montserrat'>
      <div className='flex flex-col'>
      <div>
      <div className='h-[249px] w-[288px] rounded-[20px] border bg-[#3D89DF]'><p></p></div>
