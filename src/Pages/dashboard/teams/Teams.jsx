@@ -149,7 +149,7 @@ const Teams = () => {
         </aside>
         <div className="w-full relative flex flex-col lg:pl-[254px] ">
           {/* menutop */}
-          <div className="sticky top-[29px] lg:top-[88px] z-[99] w-full lg:h-[88px] bg-white flex justify-between pl-[32px] pr-[24px] py-[24px] text-[16px] font-[500] leading-[16px] tracking-[-0.64px] text-[#7B7C7C] ">
+          <div className="sticky top-[32px] lg:top-[88px] z-[99] w-full lg:h-[88px] bg-white flex justify-between pl-[32px] pr-[24px] max-lg:py-[8px] max-lg:pt-[24px] lg:py-[24px] text-[12px] lg:text-[16px] font-[500] leading-[16px] tracking-[-0.64px] text-[#7B7C7C] max-lg:mb-[16px]">
             <div className=" flex gap-x-[16px] ">
               {menuTabs.map((tab, index) => (
                 <button
@@ -157,7 +157,7 @@ const Teams = () => {
                   onClick={tab.fn}
                   className={`${
                     activeTab == tab.name && "w-full bg-[#FAFAFA] text-[#1E1E1E]"
-                  } p-[12px] flex items-center justify-center rounded-[8px]`}
+                  } p-[8px] lg:p-[12px] flex items-center justify-center rounded-[8px]`}
                 >
                   {tab.name}
                 </button>
