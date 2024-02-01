@@ -11,7 +11,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import logo from '../../../assets/Logo.svg'
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
-const SideBar = ({ openMenu, menuRef }) => {
+const SideBar = ({ openMenu, closeMenu }) => {
   // console.log(openMenu)
   return (
     <div
@@ -29,8 +29,10 @@ const SideBar = ({ openMenu, menuRef }) => {
       <div className="flex flex-col lg:px-[28px] lg:pt-[46px] h-full justify-between pb-[36px] items-center font-montserrat font-[500] text-[#636363]">
         <div>
           <div className="flex flex-col gap-y-[12px]">
+            {/* Dashboard */}
             <NavLink
               to="/dashboard"
+              onClick={closeMenu}
               className="flex items-center gap-x-[8px] p-[10px]"
             >
               <DashboardIcon />
@@ -41,6 +43,7 @@ const SideBar = ({ openMenu, menuRef }) => {
             {/* teams */}
             <NavLink
               to="teams"
+              onClick={closeMenu}
               className="flex items-center gap-x-[8px] p-[10px]"
             >
               <HiOutlineUserGroup />
@@ -61,6 +64,7 @@ const SideBar = ({ openMenu, menuRef }) => {
             {/* Time Tracker */}
             <NavLink
               to="time-tracker"
+              onClick={closeMenu}
               className="flex items-center gap-x-[8px] p-[10px]"
             >
               <CiClock1 />
@@ -71,6 +75,7 @@ const SideBar = ({ openMenu, menuRef }) => {
             {/* Projects */}
             <NavLink
               to="project"
+              onClick={closeMenu}
               className="flex items-center gap-x-[8px] p-[10px]"
             >
               <PiNotepadThin />
@@ -81,6 +86,7 @@ const SideBar = ({ openMenu, menuRef }) => {
             {/* Analytics */}
             <NavLink
               to="#"
+              onClick={closeMenu}
               className="flex items-center gap-x-[8px] p-[10px] shrink-"
             >
               <BiBarChartSquare className="shrink-0" />

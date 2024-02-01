@@ -19,7 +19,7 @@ const DashboardLayout = () => {
         <TopBar openMenu={openMenu} setopenMenu={setopenMenu} header={header}/>
       </div>
       <div className="w-full z- flex h-full">
-        <SideBar openMenu={openMenu} />
+        <SideBar openMenu={openMenu} closeMenu={()=>setopenMenu(false)} />
         {openMenu && (
           <div
             onClick={() => setopenMenu(false)}
