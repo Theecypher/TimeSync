@@ -37,25 +37,25 @@ const Chat = () => {
 
   return (
     <div className='m-[30px]'>
-      <div className=' flex flex-col [&>*:nth-child(even)]:items-end' >
+      <div className=' flex flex-col ' >
         {chats &&
           chats.map((chat, index) => (
-            <div key={index} className='h-[170px] flex flex-col'>
+            <div key={index} className='h-[120px] flex flex-col'>
               <div className='flex flex-row items-center gap-[8px] justify-start '>
                 <img src={chat.sender === 'Jade' ? jade : me} alt='avatar' className='w-[24px] h-[24px]' />
                 <p className='text-[#3D3D3D] text-[16px] font-semibold'>{chat.sender}</p>
                 <p className='text-[#3D3D3D] text-[10px] font-medium'>{chat.time}</p>
               </div>
               <div>
-                <p className='text-[#3D3D3D] text-[14px] font-normal w-[285px] h-[105px] ml-[30px]'>{chat.message}</p>
+                <p className='text-[#3D3D3D] text-[14px] font-normal h-[105px] ml-[30px]'>{chat.message}</p>
               </div>
             </div>
           ))}
       </div>
 
       {/* Search field at the bottom of the chat */}
-      <div className='flex flex-row pt-[30px] items-center fixed bottom-0'>
-        <div className='flex flex-row gap-[10px]'>
+      <div className='flex flex-row pt-[30px] items-center fixed bottom-0 '>
+        <div className='flex flex-row gap-[20px] absolute pl-[40px]'>
           <img src={add} alt='add' />
           <img src={mic} alt='mic' />
         </div>
@@ -63,10 +63,10 @@ const Chat = () => {
           <input
             type='text'
             placeholder='Type a message'
-            className='w-[543.03px] h-[59px] rounded-[6px] border border-[#F5F5F5] cursor-pointer bg-[#FAFAFA] p-[10px]'
+            className='w-[543.03px] h-[59px] rounded-[6px] border border-[#F5F5F5] cursor-pointer bg-[#FAFAFA] pl-[120px]'
           />
         </div>
-        <div className='w-[24px] h-[24px] bg-[#E8F3FF] rounded-[4px] flex items-center justify-center'>
+        <div className='w-[24px] h-[24px] bg-[#E8F3FF] rounded-[4px] flex items-center justify-center ml-[-60px]'>
           <img src={send} alt='send' />
         </div>
       </div>
