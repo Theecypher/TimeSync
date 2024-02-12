@@ -3,8 +3,9 @@ import pack from './assets/package.svg';
 import watch from './assets/watch.svg';
 import analy from './assets/analytics-01.svg';
 import users from './assets/users.svg';
-import main from './assets/main.png';
-import content from './assets/content.jpeg';
+import main from './assets/Frame.svg';
+import content from './assets/FloatingIphone.svg';
+import shadow from './assets/shadow.svg';
 import arrow from './assets/Arrow 1.svg';
 
 
@@ -88,17 +89,22 @@ const Features = () => {
     </div>
     </div>
     <div className='flex justify-center items-center mt-[70px]'>
-    <div className='bg-[#e0eaf3] rounded-full w-[530px] h-[530px] relative'>
-        <div className='bg-[#7298c3] rounded-full w-[430px] h-[430px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-            <div className='bg-[#507fb3] rounded-full w-[330px] h-[330px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-                <div className='bg-[#034592] rounded-full w-[270px] h-[230px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-                    <div><img src={main} alt="phone" className='w-[600px] h-[570px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2' />
-                         <div><img src={content} alt='content' className='w-[230px] h-[540px] rounded-[2rem] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 '/></div>
+    <div className='bg-[#e0eaf3] rounded-full md:w-[530px] md:h-[530px] w-[330px] h-[330px] relative'>
+    
+        <div className='bg-[#7298c3] rounded-full md:w-[430px] md:h-[430px] w-[270px] h-[270px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+            <div className='bg-[#507fb3] rounded-full md:w-[330px] md:h-[330px] w-[210px] h-[210px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                <div className='bg-[#034592] rounded-full md:w-[270px] md:h-[230px] w-[150px] h-[150px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+                {/* <div><img src={shadow} alt='shadow' className='w-[700px] h-[300px] mt-[200px]'/></div> */}
+                    <div><img src={main} alt="phone" className='md:w-[600px] mt-[-10px] md:h-[570px]  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2' />
+                       <div><img src={content} alt='content' className='md:w-[240px] w-[135px] md:mt-[-20px] mt-[-15px] md:h-[570px] h-[500px] rounded-[2rem] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 '/></div>
                     </div>
+                   
                 </div>
             </div>
         </div>
+        
     </div>
+   
 </div>
 <div className='flex flex-col justify-center items-center md:flex-row sm:justify-between md:mt-[-490px] mt-[40px] ml-[30px] mr-[25px]'>
   <div className='flex flex-col items-center md:items-start'>
