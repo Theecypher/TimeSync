@@ -54,8 +54,10 @@ const ResetComponentPassword = () => {
   const ConfirmPassword = () => {
     const errors = {};
 
-    if (psswrdDetails.confirmPsswrd !== psswrdDetails.psswrd) {
-      errors.confirmPsswrd = "Password does not match!";
+    if (psswrdDetails.confirmPsswrd.length != 0) {
+      if (psswrdDetails.psswrd != psswrdDetails.confirmPsswrd) {
+        errors.confirmPsswrd = "Password does not match!";
+      }
     }
     return errors;
   };
@@ -77,7 +79,7 @@ const ResetComponentPassword = () => {
       setLoading(true);
       axios
         .post(
-          `${baseUrl}/auths/reset-password`,
+          `${baseUrl}/auth/reset-password`,
           {
             password: psswrdDetails.psswrd,
             confirmPassword: psswrdDetails.confirmPsswrd,
@@ -96,21 +98,24 @@ const ResetComponentPassword = () => {
           toast.error("Password Incorrect");
           setLoading(false);
         });
-
+    } else {
       setError(validatePassword);
       toast.warning("Password does not match!");
     }
   };
 
   return (
-    <CreatePassword
-      psswrdDetails={psswrdDetails}
-      handleSubmit={handleSubmit}
-      psswrdError={psswrdError}
-      loading={loading}
-      error={error}
-      handleChange={handleChange}
-    />
+    <div className="w-full lg:bg-[#B6D8FF] font-montserrat flex px-[16px] lg:px-0 lg:flex-col lg:items-center lg:justify-center lg:backdrop-blur-[30px] lg:bg-[rgba(255, 255, 255, 0.2)] h-[100vh]">
+      {" "}
+      <CreatePassword
+        psswrdDetails={psswrdDetails}
+        handleSubmit={handleSubmit}
+        psswrdError={psswrdError}
+        loading={loading}
+        error={error}
+        handleChange={handleChange}
+      />
+    </div>
   );
 };
 

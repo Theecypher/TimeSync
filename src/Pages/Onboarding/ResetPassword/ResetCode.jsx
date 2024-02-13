@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import useStore from "../../../zustand-store/store";
@@ -13,7 +13,6 @@ const ResetCode = () => {
   const navigateTo = useNavigate();
 
   const handleChange = (index, value) => {
-    console.log(value);
     let newOtpValues = [...otpValues];
     newOtpValues[index] = value;
     setOtpValues(newOtpValues);
@@ -35,7 +34,7 @@ const ResetCode = () => {
     setIsLoading(true);
     axios
       .post(
-        `${baseUrl}/auths/confirm-forgot-password-otp`,
+        `${baseUrl}/auth/confirm-forgot-password-otp`,
         {
           otp: otpString,
         },

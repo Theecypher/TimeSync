@@ -8,7 +8,7 @@ import { CiClock1 } from "react-icons/ci";
 import { PiNotepadThin } from "react-icons/pi";
 import { BiBarChartSquare } from "react-icons/bi";
 import { IoSettingsOutline } from "react-icons/io5";
-import logo from '../../../assets/Logo.svg'
+import logo from "../../../assets/Logo.svg";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import avatar from '../../../assets/profile-avatar.svg'
 
@@ -104,7 +104,7 @@ const SideBar = ({ openMenu, closeMenu }) => {
             </NavLink>
             {/* Analytics */}
             <NavLink
-              to="#"
+              to="analytics"
               onClick={closeMenu}
               className={({ isActive }) =>
                 isActive
