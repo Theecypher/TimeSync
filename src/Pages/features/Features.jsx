@@ -14,10 +14,10 @@ const Features = () => {
   return (
     <div className='bg-[#f9fcfe] md:h-[900px] h-[1800px]'>
 <div className='flex justify-end gap-[3rem] items-center'>
-    <div className='md:invisible visible'>
+    <div className='md:invisible visible ml-90px'>
        <img src={arrow} alt='arrow'/>
     </div>
-    <div className='flex justify-center'>
+    <div className='flex justify-center text-center'>
         <p className='text-[#034592] md:text-[56px] text-[24px] md:w-[850px] w-[200px] font-[700]'>Features That Works For You</p>
     </div>
     <div className='md:visible invisible'>
