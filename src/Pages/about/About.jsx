@@ -7,9 +7,9 @@ const About = () => {
      <div className='flex flex-col'>
      <div>
      <div className='md:h-[249px] md:w-[288px] h-[200px] w-[200px] rounded-[20px] border bg-[#3D89DF]'><p></p></div>
-     <div className='md:h-[249px] md:w-[288px] h-[200px] w-[200px] rounded-[20px] border bg-[#FCB59A] md:mt-[160px] md:ml-[230px] mt-[90px] ml-[130px]'><p></p></div>
+     <div className='md:h-[249px] md:w-[288px] h-[200px] w-[200px] rounded-[20px] border bg-[#FCB59A] md:mt-[160px] md:ml-[230px] mt-[-20px] ml-[130px]'><p></p></div>
      </div>
-     <div className='flex absolute ml-[40px] mt-[40px]'><img src={male} alt='male' className='md:w-[427px] md:h-[580px] w-[250px] h-[410px]' /></div>
+     <div className='flex absolute ml-[40px] mt-[40px]'><img src={male} alt='male' className='md:w-[427px] md:h-[580px] w-[250px] h-[300px]' /></div>
      </div>
      <div>
        <p className='text-[#F77A4A] md:text-[56px] text-[24px] font-[700]'>About Us</p>
