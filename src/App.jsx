@@ -16,6 +16,7 @@ import TimeTracker from "./Pages/dashboard/timeTracker/TimeTracker";
 import Project from "./Pages/dashboard/project/Project";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import useStore from "./zustand-store/store";
+import Analytics from "./Pages/dashboard/Analytics/Analytics";
 
 function App() {
   const [otpTime, setOtpTime] = useState(localStorage.getItem("otp") || 300);
@@ -29,10 +30,8 @@ function App() {
     if (
       (token && location.pathname.includes("signin")) ||
       (token && location.pathname.includes("signup")) ||
-      (token &&
-        location.pathname.includes("createPassword")) ||
-        (token &&
-        location.pathname.includes("resetPassword"))
+      (token && location.pathname.includes("createPassword")) ||
+      (token && location.pathname.includes("resetPassword"))
     ) {
       router("/dashboard");
     }
@@ -72,6 +71,7 @@ function App() {
           <Route path="teams" element={<Teams />} />
           <Route path="calendar-view" element={<CalendarView />} />
           <Route path="project" element={<Project />} />
+          <Route path="analytics" element={<Analytics />} />
         </Route>
         <Route path="/showTimerModal" element={<ShowTimerModal />} />
       </Routes>

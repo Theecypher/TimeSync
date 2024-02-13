@@ -95,7 +95,7 @@ const CreatePassword = ({
             )}
           </div>
         </div>
-        <div className="lg:w-full w-[40%] flex flex-col gap-y-[20px] lg:mt-[58px] xl:mt-[60px] 2xl:mt-[72px]">
+        <div className="w-full flex flex-col gap-y-[20px] lg:mt-[58px] xl:mt-[60px] 2xl:mt-[72px]">
           <button
             disabled={loading}
             className={` gap-x-2 disabled:bg-[#0346927c] w-full text-[#FFFFFF] bg-[#034592] font-[500] text-[16px] leading-[19.5px] rounded-[4px] p-[10px] transition ease-out active:duration-300`}

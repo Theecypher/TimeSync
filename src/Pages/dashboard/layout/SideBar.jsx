@@ -8,7 +8,7 @@ import { CiClock1 } from "react-icons/ci";
 import { PiNotepadThin } from "react-icons/pi";
 import { BiBarChartSquare } from "react-icons/bi";
 import { IoSettingsOutline } from "react-icons/io5";
-import logo from '../../../assets/Logo.svg'
+import logo from "../../../assets/Logo.svg";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 const SideBar = ({ openMenu, menuRef }) => {
@@ -80,7 +80,7 @@ const SideBar = ({ openMenu, menuRef }) => {
             </NavLink>
             {/* Analytics */}
             <NavLink
-              to="#"
+              to="analytics"
               className="flex items-center gap-x-[8px] p-[10px] shrink-"
             >
               <BiBarChartSquare className="shrink-0" />

@@ -19,13 +19,13 @@ const SideMenu = () => {
   return (
     <aside
       className={`lg:w-[230px] w-full h-full overflow-hidden ixed left-0 top-0 bottom-0 lg:sticky  z-[999] ${
-        isOpen && "w-[60px]" 
+        isOpen && "w-[60px]"
       }`}
     >
       <nav className=" w-full h-full flex flex-col bg-white border-r shadow-sm ">
         <div className="p-4 pb-2 flex gap-[8px] text-[16px] items-center">
           <Link
-          to={'/'}
+            to={"/"}
             className={`lg:flex hidden flex-row items-center ${
               isOpen ? "block" : "none"
             }`}
@@ -81,12 +81,16 @@ const SideMenu = () => {
               </span>
             </li>
           </Link>
-          <li className="relative flex items-center gap-[8px] text-[12px] text-[#7B7C7C] py-2 px-3 my-1 font-medium rounded-md cursor-pointer lg:hover:w-[184px] hover:w-[32px] lg:hover:h-[40px] hover:h-[36px] hover:bg-[#E3EFFC] hover:border-[#B6D8FF] hover:rounded-[4px]">
-            <img src={analytics} alt="analytics" />
-            <span className={`hidden lg:inline ${isOpen ? "lg:visible" : ""}`}>
-              Analytics and report
-            </span>
-          </li>
+          <Link to="analytics">
+            <li className="relative flex items-center gap-[8px] text-[12px] text-[#7B7C7C] py-2 px-3 my-1 font-medium rounded-md cursor-pointer lg:hover:w-[184px] hover:w-[32px] lg:hover:h-[40px] hover:h-[36px] hover:bg-[#E3EFFC] hover:border-[#B6D8FF] hover:rounded-[4px]">
+              <img src={analytics} alt="analytics" />
+              <span
+                className={`hidden lg:inline ${isOpen ? "lg:visible" : ""}`}
+              >
+                Analytics and report
+              </span>
+            </li>
+          </Link>
         </ul>
         <ul className="flex-1 px-3 pt-[90px]">
           <li className="relative flex items-center gap-[8px] text-[12px] text-[#7B7C7C] py-2 px-3 my-1 font-medium rounded-md cursor-pointer lg:hover:w-[184px] hover:w-[32px] lg:hover:h-[40px] hover:h-[36px]  hover:bg-[#E3EFFC] hover:border-[#B6D8FF] hover:rounded-[4px]">

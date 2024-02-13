@@ -32,38 +32,40 @@ const ResetPassword = () => {
     if (Object.keys(validated).length === 0) {
       setLoading(true);
       axios
-        .post(`${baseUrl}/auths/forgot-password`, {
+        .post(`${baseUrl}/auth/forgot-password`, {
           email: email,
         })
         .then((res) => {
           console.log(res);
-          let token = res.data.data.token;
+          let token = res?.data?.data?.token;
+          console.log(token);
+          updateToken(token);
           setHasSentCode(true);
-          toast.success("Reset Code Sent!");
+          toast.success("Rset Code Sent!");
           setLoading(false);
         })
         .catch((error) => {
-          console.log(error);
-          toast.error(error?.res?.data?.err || error?.res?.data?.message);
+          toast.error(error?.response?.data?.message);
           setLoading(false);
         });
-    } else {
-      setError(validated);
-      toast.warning("Please check input field");
     }
+    // else {
+    //   setError(validated);
+    //   toast.warning("Incorrect or Invalid Email!");
+    // }
   };
 
   return (
     <div className="w-full lg:bg-[#B6D8FF] font-montserrat flex px-[16px] lg:px-0 lg:flex-col lg:items-center lg:justify-center lg:backdrop-blur-[30px] lg:bg-[rgba(255, 255, 255, 0.2)] h-[100vh]">
-      {!hasSentCode ? (
+      {hasSentCode ? (
+        <ResetCode />
+      ) : (
         <ForgotPassword
           Loading={Loading}
           handleForgotPassword={handleForgotPassword}
           handleChange={handleChange}
           error={error}
         />
-      ) : (
-        <ResetCode />
       )}
     </div>
   );
