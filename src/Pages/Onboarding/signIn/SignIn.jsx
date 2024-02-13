@@ -59,6 +59,16 @@ const SignIn = () => {
           let token = response?.data?.data?.token
           localStorage.setItem('token', token)
           updateToken(token)
+          if (
+            response?.data?.data?.message.includes(
+              "Please verify your account before logging in."
+            )
+          ) {
+            toast.warning(response?.data?.data?.message);
+            setNotVerifed(true);
+            setLoading(false);
+            return;
+          }
           setSubmitStatus('success');
           toast.success("Sign in successful!");
           setLoading(false);

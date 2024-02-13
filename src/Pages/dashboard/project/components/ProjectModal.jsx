@@ -20,8 +20,9 @@ const ProjectModal = ({ openModal, closeModal, setValue}) => {
   // console.log(value)
 
   return (
-    <Modal openModal={openModal} closeModal={closeModal}>
+    <Modal openModal={openModal} closeModal={closeModal} className=' max-lg:px-[28px] max-lg:py-[20px] z'>
       <div className="w-full flex flex-col items-center justify-center">
+        {/* Header & close icon */}
         <div className="w-full flex flex-row items-center justify-between">
           <h3 className="font-[600] text-[20px] leading-[30px] tracking-[-0.46px] text-[#3D3D3D]">
             New Project
@@ -29,19 +30,21 @@ const ProjectModal = ({ openModal, closeModal, setValue}) => {
           <IoCloseOutline
             color="#1E1E1E"
             size={34}
-            className="bg-slate-100 p-2"
+            className="lg:bg-slate-100 p-2 max-lg:w-[44px] max-lg:h-[44px]"
             onClick={closeModal}
           />
         </div>
-        <form className="w-full mt-[40px] flex flex-col gap-y-[20px]">
+        {/* Project form  */}
+        <form className="w-full mt-[40px] flex flex-col gap-y-[20px] max-lg:text-[12px]">
+          {/* Project name  */}
           <div className=" flex flex-col gap-y-[8px]">
-            <h4 className="text-[#1E1E1E] text-[16px] font-[500] leading-[24px] tracking-[-0.368px]">
+            <h4 className="text-[#1E1E1E] text-[12px] lg:text-[16px] font-[500] leading-[24px] tracking-[-0.368px]">
               Project name:
             </h4>
             <Input
               type="text"
               placeholder={"Project name"}
-              className="w-full"
+              className="w-full max-lg:text-[12px]"
             />
             {error?.name && (
               <p className=" text-error-1 text-[12px] font-[500] leading-[18px] tracking-[-0.276px]">
@@ -49,8 +52,9 @@ const ProjectModal = ({ openModal, closeModal, setValue}) => {
               </p>
             )}
           </div>
+          {/* Assigned To  */}
           <div className=" flex flex-col gap-y-[8px]">
-            <h4 className="text-[#1E1E1E] text-[16px] font-[500] leading-[24px] tracking-[-0.368px]">
+            <h4 className="text-[#1E1E1E] lg:text-[16px] font-[500] leading-[24px] tracking-[-0.368px]">
               Assigned To:
             </h4>
             <Input type="text" placeholder={"Enter name"} className="w-full" />
@@ -60,8 +64,9 @@ const ProjectModal = ({ openModal, closeModal, setValue}) => {
               </p>
             )}
           </div>
+          {/* Timeline */}
           <div className=" flex flex-col gap-y-[8px]">
-            <h4 className="text-[#1E1E1E] text-[16px] font-[500] leading-[24px] tracking-[-0.368px]">
+            <h4 className="text-[#1E1E1E] lg:text-[16px] font-[500] leading-[24px] tracking-[-0.368px]">
               Timeline:
             </h4>
             <Select setValue={setValue} className="w-full" >
@@ -77,8 +82,9 @@ const ProjectModal = ({ openModal, closeModal, setValue}) => {
               </p>
             )}
           </div>
+          {/* Billing */}
           <div className=" flex flex-col gap-y-[8px]">
-            <h4 className="text-[#1E1E1E] text-[16px] font-[500] leading-[24px] tracking-[-0.368px]">
+            <h4 className="text-[#1E1E1E] lg:text-[16px] font-[500] leading-[24px] tracking-[-0.368px]">
               Billing:
             </h4>
             <Select className="w-full" />
@@ -88,8 +94,9 @@ const ProjectModal = ({ openModal, closeModal, setValue}) => {
               </p>
             )}
           </div>
+          {/* Priority */}
           <div className=" flex flex-col gap-y-[8px]">
-            <h4 className="text-[#1E1E1E] text-[16px] font-[500] leading-[24px] tracking-[-0.368px]">
+            <h4 className="text-[#1E1E1E] lg:text-[16px] font-[500] leading-[24px] tracking-[-0.368px]">
               Priority:
             </h4>
             <Select className="w-full" />
@@ -99,8 +106,9 @@ const ProjectModal = ({ openModal, closeModal, setValue}) => {
               </p>
             )}
           </div>
+          {/* Description  */}
           <div className=" flex flex-col gap-y-[8px]">
-            <h4 className="text-[#1E1E1E] text-[16px] font-[500] leading-[24px] tracking-[-0.368px]">
+            <h4 className="text-[#1E1E1E] lg:text-[16px] font-[500] leading-[24px] tracking-[-0.368px]">
               Decscription:
             </h4>
             <div className="relative max-w-full border-[1px] border-[#E9EBF8] shadown-sm p-[16px] rounded-[16px] text-[#7B7C7C] font-[400] text-[14px] leading-[21px]">

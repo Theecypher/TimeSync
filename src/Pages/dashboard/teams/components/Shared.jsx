@@ -8,7 +8,6 @@ import picture from "./assets/picture.svg";
 import speaker from "./assets/speaker.svg";
 import share from "./assets/share.svg";
 import video from "./assets/video.svg";
-import LeftMenu from "../../layout/TopBar";
 
 const Shared = () => {
   const sharedLists = [
@@ -73,10 +72,10 @@ const Shared = () => {
   return (
     <div className="w-full flex flex-col">
       {/* Sub menu */}
-      <div className="w-full h-[72px] flex justify-end">
+      <div className="w-full h-fit z-[] max-lg:mt-[16px] max-lg:pb-[16px] lg:h-[72px] flex justify-end">
         {/* Sort */}
-        <div className="flex items-center pr-[21px] gap-x-[4px] text-[#1E1E1E]">
-          <span className="font-[500] text-[16px] leading-[16px] tracking-[-0.64px]">
+        <div className="flex items-center pr-[21px] gap-x-[4px] text-[#1E1E1E] max-lg:">
+          <span className="font-[500] text-[12px] lg:text-[16px] leading-[12px] lg:leading-[16px] tracking-[-0.48px] lg:tracking-[-0.64px]">
             {" "}
             Name
           </span>
