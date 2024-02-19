@@ -20,7 +20,7 @@ const Features = () => {
     <div className='flex justify-center text-center'>
         <p className='text-[#034592] md:text-[56px] text-[24px] md:w-[850px] w-[200px] font-[700]'>Features That Works For You</p>
     </div>
-    <div className='md:visible invisible'>
+    <div className='md:visible invisible md:w-[150px] md:h-[100px] w-[50px] h-[50px] '>
         <div className='flex gap-[0.3rem] mb-[5px] '>
             <div className='bg-[#eef6fe] w-[15px] h-[15px] rounded-full'></div>
             <div className='bg-[#eef6fe] w-[15px] h-[15px] rounded-full'></div>
