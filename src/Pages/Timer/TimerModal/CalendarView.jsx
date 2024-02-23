@@ -5,7 +5,7 @@ import RightArrow from "./Assests/rightarrow.svg";
 import LeftArrow from "./Assests/leftarrow.svg";
 import dateCalendar from "./Assests/date-calendar.svg";
 
-const CalendarView = ({timers}) => {
+const CalendarView = ({ timers }) => {
   const [activeView, setActiveView] = useState("calendar");
   const [tasks, setTasks] = useState(tasksData);
   const [days, setDays] = useState([
@@ -55,18 +55,18 @@ const CalendarView = ({timers}) => {
           />
         </div>
       </div>
-      <div className="flex my-1 mx-[12px] gap-1 flex-shrink-0 items-start w-[1004px]">
+      <div className="flex my-1 mx-[12px] w-[417px] overflow-hidden gap-1 flex-shrink-0 items-start md:w-[1004px]">
         {days.map((day, index) => (
           <ul
             onClick={() => handleClick(index)}
             key={index}
             className={
               !taskColumn
-                ? "border my-1 mx-[2px] bg-gray-50 rounded-xl border-blue-900"
-                : "border my-1 mx-[2px] rounded-xl border-blue-900 bg-blue-100"
+                ? "border w-[139px] my-1 mx-[2px] bg-gray-50 rounded-xl border-blue-900"
+                : "border w-[139px] my-1 mx-[2px] rounded-xl border-blue-900 bg-blue-100"
             }
           >
-            <h4 className="text-center text-[#1e1e1e] text-[15px] font-[400] leading-normal pt-2 h-[39px] flex-shrink-0">
+            <h4 className="text-center text-[#1e1e1e] text-[12px] md:text-[15px] font-[400] leading-normal pt-2 h-[39px] flex-shrink-0">
               {day}
             </h4>
             <li>

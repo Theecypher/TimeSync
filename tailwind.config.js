@@ -104,7 +104,7 @@ export default {
   },
   borderRadius: {
     "tremor-small": "0.375rem",
-    "tremor-default": "0.5rem",
+    "tremor-default": "5rem",
     "tremor-full": "9999px",
   },
   safelist: [

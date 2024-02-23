@@ -7,15 +7,15 @@ import { LineChartCustomChartColorsExample } from "./Components/AnalyticsLineGra
 
 const AnalyticsGraph = () => {
   return (
-    <div className="flex flex-col justify-center overflow-hidden pt-[24px] px-4 w-full md:items-start rounded-xl bg-[#fff] flex-shrink-0 md:border-none md:bg-[#f6f6f6]">
+    <div className="flex flex-col justify-center overflow-hidden pt-[24px] px-3 w-full md:items-start rounded-xl bg-[#fff] flex-shrink-0 md:border-none md:bg-[#f6f6f6]">
       <div className="flex flex-col w-full justify-center gap-10">
-        <div className="md:flex gap-5">
+        <div className="md:flex gap-4">
           <AnalyticsBarChart />
           <AnalyticsDonut />
         </div>
       </div>
 
-      <div className="md:flex flex-col md:w-full md:p-5 md:my-3 md:mx-2 justify-center items-start gap-[10px] flex-shrink-0 rounded-xl bg-[#fff]">
+      <div className="md:flex flex-col md:w-full md:p-5 md:my-3 justify-center items-start gap-[10px] flex-shrink-0 rounded-xl bg-[#fff]">
         <div className="mt-3 flex gap-7 justify-around items-start">
           <div className="w-[165px] flex flex-col gap-4 p-3">
             <div>

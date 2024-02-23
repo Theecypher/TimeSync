@@ -24,7 +24,7 @@ const cities = [
 
 const AnalyticsDonut = () => {
   return (
-    <div className="w-full mt-10 md:mt-0 md:bg-[#fff] md:w-[504px] md:rounded-md md:pt-3 md:pb-0 md:px-5">
+    <div className="w-full mt-10 md:mt-0 md:bg-[#fff] md:w-[520px] md:rounded-md md:pt-3 md:pb-0 md:px-[10px]">
       <div className="flex items-center justify-between">
         <h4 className="font-[600] text-[11.43px] leading-3 text-[#1e1e1e] md:text-base md:leading-[19.5px]">
           Tasks
@@ -35,7 +35,10 @@ const AnalyticsDonut = () => {
       </div>
 
       {cities.map((item, index) => (
-        <div className="flex items-center my-2 md:rounded-xl justify-between gap-7">
+        <div
+          key={index}
+          className="flex items-center my-4 md:rounded-xl justify-between gap-7"
+        >
           <h4 className="flex self-center font-medium text-xs tracking-[-4%] leading-[14px] text-[#3d3d3d] justify-center md:text-base">
             Digital Productivity tool team
           </h4>
