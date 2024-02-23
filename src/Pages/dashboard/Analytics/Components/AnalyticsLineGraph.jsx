@@ -45,10 +45,10 @@ const chartdata3 = [
 
 export function LineChartCustomChartColorsExample() {
   return (
-    <div className="w-[360px] h-[185.91px] md:w-[850px]">
+    <div className="w-[360px] h-[185.91px] md:w-[840px] lg:w-[980px]">
       <div className="text-sm">
         <LineChart
-          className="h-[184px] w-full mt-[10px] md:h-[191px] opacity-70"
+          className="h-[184px] w-full mt-[10px] md:h-[191px] opacity-70 decoration-dashed"
           data={chartdata3}
           index="number"
           categories={["time spent", "overtime"]}

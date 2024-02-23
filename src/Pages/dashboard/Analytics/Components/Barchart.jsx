@@ -36,7 +36,7 @@ const valueFormatter = (number) =>
 
 const AnalyticsBarChart = () => (
   // <div className="w-full md:w-max mt-10 md:mt-0 md:bg-[#fff] md:rounded-md md:shadow md:py-3 md:px-7">
-  <div className="w-full md:w-[488px] md:h-[284px] bg-[#fff] md:rounded-md md:pt-[24px] md:pb-[189px] md:px-[24px]">
+  <div className="w-full md:w-[495px] md:h-[284px] bg-[#fff] md:rounded-md md:pt-[24px] md:pb-[189px] md:px-[24px]">
     <p className="text-[1e1e1e] text-[9.15px] leading-normal font-[500]">
       Average daily hours
     </p>
@@ -44,7 +44,7 @@ const AnalyticsBarChart = () => (
       00:04:22
     </h2>
     <BarChart
-      className="h-[200px] w-full ml-[-28px] md:w-[412px]"
+      className="h-[200px] w-full ml-[-28px] lg:w-[472px] md:w-[400px] rounded-[30px]"
       data={chartdata}
       index="name"
       categories={["dailyHours"]}

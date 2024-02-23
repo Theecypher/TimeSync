@@ -12,19 +12,19 @@ const data = [
   {
     name: "Ronalds Richards",
     review:
-      "he project management aspect is a game-changer. I can organize tasks, collaborate with my team seamlessly, and the custom reports have provided invaluable insights into my work patterns",
+      "The project management aspect is a game-changer. I can organize tasks, collaborate with my team seamlessly, and the custom reports have provided invaluable insights into my work patterns",
     imgLink: person2,
   },
   {
     name: "Savannah Nguyen",
     review:
-      "Timesync has become an indispensable part of my workflow, and I highly recommend it to anyone looking to enhance their time management and productivity.",
-    imgLink: person3,
+      "it's truly transformed the way I approach my work. The time tracking features are incredibly intuitive, allowing me to log my hours effortlessly and gain a real-time overview of my productivity.",
+    imgLink: person1,
   },
   {
-    name: "Floyd Miles",
+    name: "Savannah Nguyen",
     review:
-      "it's truly transformed the way I approach my work. The time tracking features are incredibly intuitive, allowing me to log my hours effortlessly and gain a real-time overview of my productivity.",
+      "Timesync has become an indispensable part of my workflow, and I highly recommend it to anyone looking to enhance their time management and productivity.",
     imgLink: person1,
   },
 ];
