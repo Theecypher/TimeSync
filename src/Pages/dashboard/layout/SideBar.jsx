@@ -22,13 +22,13 @@ const SideBar = ({ openMenu, closeMenu }) => {
           : "w-0 z-0 overflow-hidden"
       }`}
     >
-      <div className="hidden h-[80px] lg:flex justify-center py-[28px] border-b border-[#EEE]">
+      <Link to={'/'} className="hidden h-[80px] lg:flex justify-center py-[28px] border-b border-[#EEE]">
         <img src={logo} />
         <h3 className="text-[20px] leading-[20px] font-[500]">
           <span className="text-primary-blue">Time</span>
           <span className="text-[#F56630]">Sync</span>
         </h3>
-      </div>
+      </Link>
       <div className="flex flex-col lg:px-[28px] pt-[54px] lg:pt-[46px] h-full justify-between pb-[36px] items-center font-montserrat font-[500] text-[#636363]">
         <div>
           <div className="flex flex-col gap-y-[12px]">
